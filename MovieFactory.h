@@ -14,7 +14,7 @@ we're creating the movie objects
 #include "Movie.h"
 #include "Drama.h"
 #include "Comedy.h"
-#include "Classic.h"
+#include "Classics.h"
 
 class MovieFactory: public ItemFactory {
 public:

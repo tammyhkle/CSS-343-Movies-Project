@@ -1,7 +1,10 @@
 #ifndef BORROW_H
 #define BORROW_H
-#include "transaction.h"
+
 #include <string>
+
+#include "Transaction.h"
+
 using namespace std;
 
 class Borrow : public Transaction {
@@ -25,4 +28,4 @@ private:
     MovieFactory movieFactory;     // factory to create Item objects
 };
 
-#endif
+#endif //BORROW_H

@@ -9,7 +9,7 @@ Customer object stores the customer info that's been read from the file. This in
 #include <string>
 #include <vector>
 
-#include "Transaction.h"
+#include "HashMap.h"
 
 using namespace std;
 

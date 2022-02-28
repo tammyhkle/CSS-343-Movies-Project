@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 
-#include "Hashmap.h"
+#include "HashMap.h"
 #include "Customer.h"
 #include "Storage.h"
 #include "RentalManager.h"

@@ -9,7 +9,9 @@
 #include <vector>
 #include <string>
 
+#include "BSTree.h"
 #include "Item.h"
+#include "Movie.h"
 
 using namespace std;
 

@@ -5,8 +5,9 @@
 #include <string>
 #include <vector>
 
-#include "Movie.h"
 #include "BSTree.h"
+#include "Movie.h"
+#include "ItemFactory.h"
 
 using namespace std;
 

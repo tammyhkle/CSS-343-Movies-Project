@@ -10,6 +10,7 @@
 #include <fstream>
 
 #include "Customer.h"
+#include "RentalManager.h"
 
 using namespace std;
 

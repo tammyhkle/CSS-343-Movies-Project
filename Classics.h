@@ -33,9 +33,9 @@ public:
   virtual void setItem(istream &data);
 
 private:
-  string director;
-  string majorActor;
-  int month;
+  string director_;
+  string majorActor_;
+  int dateReleased_;
 };
 
 #endif // CLASSICS_H
