@@ -11,10 +11,10 @@
 #ifndef COMEDY_H
 #define COMEDY_H
 
+#include "Movie.h"
+
 #include <iostream>
 #include <string>
-
-#include "Movie.h"
 
 using namespace std;
 
