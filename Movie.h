@@ -5,6 +5,9 @@
 #include <string>
 
 #include "Item.h"
+#include "Classics.h"
+#include "Comedy.h"
+#include "Drama.h"
 
 using namespace std;
 

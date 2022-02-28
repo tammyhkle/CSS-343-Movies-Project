@@ -41,7 +41,8 @@ Item& Classics::operator=(const Item& item)
     this->currCopies_ = movieClassics.currCopies_; //stock
     this->director_ = movieClassics.director_; //director
     this->title_ = movieClassics.title_; //title
-    this->yearReleased_ = movieClassics.yearReleased_; //year it released
+    this->majorActor_ = movieClassics.majorActor_; //majorActor
+    this->dateReleased_ = movieClassics.dateReleased_; //date it released
     return *this;
 }
 // virtual comparison operator==
@@ -60,11 +61,11 @@ bool Classics::operator<(const Item& item) const
 {
     const Classics& movieClassics = static_cast<const Classics&>(item);
     // sorted by directors name then title of movie
-    if (this->director_ < movieClassics.director_)
+    if (this->dateReleased_ < movieClassics.dateReleased_)
     {
         return true;
     }
-    else if (this->director_ == movieClassics.director_)
+    else if (this->dateReleased_ == movieClassics.dateReleased_)
     {
         return this->title_ < movieClassics.title_;
     }
@@ -84,7 +85,7 @@ bool Classics::operator>(const Item& item) const
     }
     else if (this->director_ == movieClassics.director_)
     {
-        return this->title_ > movieClassics.title_;
+        return this->majorActor_ > movieClassics.majorActor_;
     }
     return false;
 }
@@ -109,5 +110,5 @@ void Classics::setItem(istream& infile)
 //print Classics
 void Classics::print(ostream& out) const
 {
-    out << movieGenre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << yearReleased_ << " " << endl;
+    out << movieGenre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << majorActor_ << " " << dateReleased_ << " " << endl;
 }
