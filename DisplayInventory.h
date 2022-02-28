@@ -1,8 +1,11 @@
 #ifndef DISPLAYINVENTORY_H
 #define DISPLAYINVENTORY_H
-#include "item.h"
-#include "transaction.h"
+
 #include <string>
+
+#include "Item.h"
+#include "Transaction.h"
+
 using namespace std;
 
 class DisplayInventory : public Transaction {
@@ -14,4 +17,4 @@ class DisplayInventory : public Transaction {
     virtual bool setData(istream &);                  // virtual set data method
     virtual void doTransaction(Storage &, HashMap &); // displays the catalogue
 };
-#endif
+#endif //DISPLAYINVENTORY_H

@@ -1,10 +1,15 @@
+/*
+TransFactory creates and returns a new transaction object
+*/
+
 #ifndef TRANSFACTORY_H
 #define TRANSFACTORY_H
-#include "borrow.h"
-#include "displayinventory.h"
-#include "history.h"
-#include "return.h"
-#include "transaction.h"
+
+#include "Borrow.h"
+#include "DisplayInventory.h"
+#include "History.h"
+#include "Return.h"
+#include "Transaction.h"
 #include <unordered_map>
 #include <vector>
 using namespace std;
@@ -24,7 +29,7 @@ class TransFactory {
 
     // Vector with elements that are initialized as new
     // Transaction objects of every possible transaction type
-    vector<Transaction *> transFac;
+    vector<Transaction*> transFac;
 };
 
-#endif
+#endif //TRANSFACTORY_H

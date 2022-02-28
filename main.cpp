@@ -4,6 +4,8 @@
  */
 
 #include <iostream>
+#include <fstream>
+
 #include "RentalManager.h"
 
 using namespace std;
@@ -33,7 +35,7 @@ int main() {
 
   myManager.readInventory(inFile1);
   myManager.readCustomers(inFile2);
-  myManager.readTransactions(inFile3);
+  myManager.readCommands(inFile3);
   
   inFile1.close();
   inFile2.close();
