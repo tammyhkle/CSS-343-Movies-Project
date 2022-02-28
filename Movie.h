@@ -41,9 +41,9 @@ public:
 
 protected:
   // gives chilren class access
-  string title;
-  char movieGenre;
-  int yearReleased;
+  string title_;
+  char movieGenre_;
+  int yearReleased_;
 };
 
 #endif // MOVIE_H

@@ -37,10 +37,10 @@ public:
 
 // gives children class access
 protected:
-  int maxCopies; //max number of copies of item 
-  int currCopies; // number of current copies of item
-  char itemType; // indicating it's a movie
-  char mediaType; // indicating the format (D for DVD)
+  int maxCopies_; //max number of copies of item 
+  int currCopies_; // number of current copies of item
+  char itemType_; // indicating it's a movie
+  char mediaType_; // indicating the format (D for DVD)
 };
 
 #endif // ITEM_H
