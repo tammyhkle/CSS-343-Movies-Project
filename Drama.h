@@ -1,3 +1,10 @@
+/*
+  Drama class - sorting by Director, then Title of movie
+  Notes:
+    Drama = "D"
+    Output format: D, stock, director, title, yearReleased
+*/
+
 #ifndef DRAMA_H
 #define DRAMA_H
 
@@ -15,6 +22,8 @@ public:
   virtual ~Drama(); // destructor
 
   virtual Item* create() const; // create() function can be used after the types of Movie
+  virtual char returnItemType() const;
+  virtual char returnItemGenre() const;
   // assignment operator
   virtual Item& operator=(const Item&); 
   // virtual comparison operators 
@@ -22,12 +31,13 @@ public:
   virtual bool operator!=(const Item&) const;
   virtual bool operator<(const Item&) const;
   virtual bool operator>(const Item&) const;
-
   // setting item
   virtual void setItem(istream& data);
+  //print
+  virtual void print(ostream& out) const;
 
 private:
-  string director;
+  string director_;
 };
 
 #endif // DRAMA_H
