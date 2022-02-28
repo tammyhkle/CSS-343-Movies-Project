@@ -1,9 +1,14 @@
-/*
-  Drama class - sorting by Director, then Title of movie
-  Notes:
-    Drama = "D"
-    Output format: D, stock, director, title, yearReleased
-*/
+/**
+ * @file Drama.cpp
+ * @author Le, Tammy
+ * @brief Drama class - sorting by Director, then Title of movie
+ * Notes:
+ * Drama = "D"
+ * Output format: D, stock, director, title, yearReleased 
+ * (same format as Comedy)
+ * @date 2022-02-26
+ **/
+
 #include "Drama.h"
 
 //default constructor
