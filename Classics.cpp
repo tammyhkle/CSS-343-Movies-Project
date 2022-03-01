@@ -9,6 +9,7 @@
  **/
 
 #include "Classics.h"
+#include <iomanip>
 
 //default constructor
 Classics::Classics()

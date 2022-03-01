@@ -9,6 +9,7 @@
  **/
 
 #include "Comedy.h"
+#include <iomanip>
 
 //default constructor
 Comedy::Comedy()
