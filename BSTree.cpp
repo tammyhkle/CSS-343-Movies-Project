@@ -180,6 +180,36 @@ BSTree::Node* BSTree::retrieveHelper(Node *&current, Item *target) const
         return retrieveHelper(current->right, target);
     }
 }
+// print for ostream <<
+void BSTree::print(ostream &out) const
+{
+    stack<Node*> nodeStack;
+    Node *current = root;
+    bool done = false;
+    while (!done)
+    {
+        if (current != nullptr)
+        {
+            nodeStack.push(current);
+            current = current->left;
+        }
+        else 
+        {
+            if (!nodeStack.empty())
+            {
+                current = nodeStack.top();
+                out << " " << *current->itemPtr << endl;
+                nodeStack.pop();
+                current = current->right;
+            }
+            else
+            {
+                done = true;
+            }
+        }
+    }
+    out << endl;
+}
 
 
 
