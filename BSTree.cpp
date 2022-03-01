@@ -111,3 +111,37 @@ bool BSTree::insert(Item* insertPtr)
      }
      return true;
 }
+//find an item object from the BSTree 
+bool BSTree::find(Item *target)
+{
+    Node *current = root;
+    bool found = false;
+    while (!found)
+    {
+        if (current == nullptr)
+        {
+            break;
+        }
+        else if (*current->itemPtr == *target)
+        {
+            found = true;
+            break;
+        }
+        else if (*target > *current->itemPtr)
+        {
+            current = current->right;
+        }
+        else if (*target < *current->itemPtr)
+        {
+            current = current->left;
+        }
+    }
+    return found;
+}
+
+
+
+
+
+
+
