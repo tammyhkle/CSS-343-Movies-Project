@@ -1,3 +1,13 @@
+/**
+ * @file Item.h
+ * @author Le, Tammy
+ * @brief Item class - Item is the nodes in the BSTree class
+ * Notes:
+ * The items in the BSTree have nodeData ptr (points to the movie)
+ * Extenibles can be added (i.e. music)
+ * @date 2022-02-26
+ **/
+
 #ifndef ITEM_H
 #define ITEM_H
 
@@ -16,7 +26,7 @@ class Item {
   friend ostream &operator<<(ostream&, const Item&);
 
 public:
-  Item(); // constructor
+  Item(); // default constructor
   virtual ~Item(); // destructor
   void borrowItem(); // decrement copies of private variables
   void returnItem(); // increment copies of private variables 
@@ -35,6 +45,9 @@ public:
   virtual bool operator!=(const Item &other) const = 0;
   virtual bool operator<(const Item &other) const = 0;
   virtual bool operator>(const Item &other) const  = 0;
+  
+  //virtual print
+  virtual void print(ostream& out) const = 0;
 
 // gives children class access
 protected:
