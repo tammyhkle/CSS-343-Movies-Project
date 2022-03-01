@@ -138,6 +138,48 @@ bool BSTree::find(Item *target)
     }
     return found;
 }
+//retrieves an item (movie object) from the BSTree
+bool BSTree::retrieve(Item *target, Item *&retrieverItem) const
+{
+    Node* current = root;
+    //if the root is the target, then return the root's itemPtr
+    if (*root->itemPtr == *target)
+    {
+        retrieverItem = root->itemPtr;
+        return true;
+    }
+    //recursive helper 
+    Node *retrieverNode = retrieveHelper(current, target);
+    if (retrieverNode != nullptr)
+    {
+        retrieverItem = retrieverNode->itemPtr;
+        return true;
+    }
+    cout << "Error: Could not find Item." << endl;
+    return false;
+}
+// retrieve helper function - recursive search for the BSTree to find the target
+// the itemPtr have to pass in as arguemnet to keep track of BSTree's root
+// another ptr referenced Item = target
+BSTree::Node* BSTree::retrieveHelper(Node *&current, Item *target) const
+{
+    if (current == nullptr)
+    {
+        return current;
+    }
+    else if (*current->itemPtr == *target)
+    {
+        return current;
+    }
+    else if (*current->itemPtr > *target)
+    {
+        return retrieveHelper(current->left, target);
+    }
+    else
+    {
+        return retrieveHelper(current->right, target);
+    }
+}
 
 
 
