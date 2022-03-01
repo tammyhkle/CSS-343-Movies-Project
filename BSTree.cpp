@@ -54,10 +54,60 @@ void BSTree::makeEmpty(Node*& ptr)
         ptr = nullptr;
     }
 }
-
-
-
-
-
-
-
+//inserts item (movie object) into BSTree; pointer of movie object needs same type of movie obj. tht BSTree uses
+bool BSTree::insert(Item* insertPtr)
+{
+    //first, we need to check for duplicates
+    if (find(insertPtr))
+    {
+        return false;
+    }
+    //then, verify if BSTree is empty or not
+    if (isEmpty())
+    {
+        root = new Node();
+        root->itemPtr = insertPtr;
+        root->left = nullptr;
+        root->right = nullptr;
+    }
+    else
+    {
+        Node *current = root;
+        bool inserted = false;
+        //determine whether to go into the left or right subtree
+        while (!inserted)
+        {
+            if (*insertPtr < *current->itemPtr)
+            {
+                if (current->left == nullptr)
+                {
+                    Node *temp = new Node();
+                    temp->itemPtr = insertPtr;
+                    temp->left = nullptr;
+                    temp->right = nullptr;
+                    current->left = temp;
+                }
+                else
+                {
+                    current = current->left;
+                } 
+            }
+            else
+            {
+                if (current->right == nullptr)
+                {
+                    Node *temp = new Node();
+                    temp->itemPtr = insertPtr;
+                    temp->left = nullptr;
+                    temp->right = nullptr;
+                    current->right = temp;
+                }
+                else
+                {
+                    current = current->right;
+                } 
+            }
+        }
+     }
+     return true;
+}
