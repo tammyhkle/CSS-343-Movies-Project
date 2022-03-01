@@ -29,11 +29,25 @@ Item::Item()
 Item::~Item()
 {
 }
- // decrement copies of private variables
+ // decrement -1 copies of private variables (for each item borrowed)
+ // denoted as 'B'
 void Item::borrowItem()
-{    
+{ 
+    if (currCopies_ > 0 )
+    {
+        currCopies_--;
+        return;
+    }
+    cout << "Can't borrow, out of stock." << endl;
 }
-// increment copies of private variables 
+// increment +1 copies of private variables (for each item returned)
+ // denoted as 'R'
 void Item::returnItem()
 {
+    if (currCopies_ < maxCopies_)
+    {
+        currCopies_++;
+        return;
+    }
+    cout << "Can't return, no space." << endl;
 } 
