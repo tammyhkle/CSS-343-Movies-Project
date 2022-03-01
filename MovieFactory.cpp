@@ -4,6 +4,8 @@
  * @brief MovieFactory class - MovieFactory is the child of ItemFactory.
  * Notes:
  * In MovieFactory we're creating the movie objects
+ * This means we will be creating and returning a new movie object
+ * All factory classes are like Hashmaps
  * @date 2022-02-26
  **/
 
