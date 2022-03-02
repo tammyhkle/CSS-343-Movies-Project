@@ -7,7 +7,6 @@
  * Output format: C, stock, director, title, majorActor, releaseDate
  * @date 2022-02-26
  **/
-
 #ifndef CLASSICS_H
 #define CLASSICS_H
 
@@ -26,8 +25,8 @@ public:
 
   // create() function can be used after the types of Movie
   virtual Item* create() const;
-  virtual char returnItemType() const;
-  virtual char returnItemGenre() const;
+  virtual char getItemType() const;
+  virtual char getGenre() const;
   // assignment operator
   virtual Item& operator=(const Item&);
   // virtual comparison operators 
@@ -43,7 +42,8 @@ public:
 private:
   string director_;
   string majorActor_;
-  int dateReleased_;
+  int yearReleased_;
+  int monthReleased_;
 };
 
 #endif //CLASSICS_H
