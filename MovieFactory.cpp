@@ -13,18 +13,19 @@
  **/
 
 #include "Movie.h"
+#include "MovieFactory.h"
 
 // default constructor - need to declare elements in hashmap and in movieFactory
 MovieFactory::MovieFactory()
 {
+    //pushback
     movieFac.push_back(new Comedy);
     movieFac.push_back(new Drama);
     movieFac.push_back(new Classics);
-    
-    //Down below is throwing errors
-    movieMap.insert({ 'F', 0});
-    movieMap.insert({ 'D', 1});
-    movieMap.insert({ 'C', 2});
+    //insert elements - movie genre ({key, value}) into map in a random order
+    movieMap.insert({'F', 0});
+    movieMap.insert({'D', 1});
+    movieMap.insert({'C', 2});
 }
 // destructor - deletes movie objects from vector 
 MovieFactory::~MovieFactory()
