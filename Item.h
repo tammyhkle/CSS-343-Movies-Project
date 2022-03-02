@@ -40,6 +40,7 @@ public:
 
   // assignment operator
   virtual Item& operator=(const Item &other) = 0; 
+
   // compare operators to sort items in BSTree
   virtual bool operator==(const Item &other) const = 0;
   virtual bool operator!=(const Item &other) const = 0;
