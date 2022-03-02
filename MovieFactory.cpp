@@ -23,9 +23,9 @@ MovieFactory::MovieFactory()
     movieFac.push_back(new Drama);
     movieFac.push_back(new Classics);
     //insert elements - movie genre ({key, value}) into map in a random order
-    movieMap.insert({'F', 0});
-    movieMap.insert({'D', 1});
-    movieMap.insert({'C', 2});
+    movieMap.insert(make_pair('F', 0)); 
+    movieMap.insert(make_pair('D', 1)); 
+    movieMap.insert(make_pair('C', 2)); 
 }
 // destructor - deletes movie objects from vector 
 MovieFactory::~MovieFactory()
