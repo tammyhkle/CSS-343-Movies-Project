@@ -26,8 +26,8 @@ public:
   Comedy(); // constructor
   virtual ~Comedy(); // destructor
 
-  virtual char returnItemType() const;
-  virtual char returnItemTypeGenre() const;
+  virtual char getItemType() const;
+  virtual char getGenre() const;
   // create() function can be used after the types of Movie
   virtual Item* create() const;
   // setting item
@@ -35,6 +35,7 @@ public:
 
   // assignment operator
   virtual Item& operator=(const Item &item);
+  
   // virtual comparison operators 
   virtual bool operator==(const Item &item) const;
   virtual bool operator!=(const Item &item) const;

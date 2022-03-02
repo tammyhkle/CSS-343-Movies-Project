@@ -21,14 +21,14 @@ Comedy::~Comedy()
 {
 }
 //return item type
-char Comedy::returnItemType() const
+char Comedy::getItemType() const
 {
     return itemType_;
 }
 //return item type genre 
-char Comedy::returnItemTypeGenre() const
+char Comedy::getGenre() const
 {
-    return movieGenre_;
+    return genre_;
 }
 // create() function can be used after the types of Movie
 Item* Comedy::create() const
@@ -98,19 +98,24 @@ void Comedy::setItem(istream &infile)
     infile.get();
     // insert the yearReleased
     infile >> yearReleased_;
-    // set the itemType into the Item class
-    itemType_ = 'Movie'; 
+    // get (and ignore) blank before year
+    infile.get();
+
+    // set defaults for rest of properties
+    // set the itemType into the Item class - M for Movie
+    itemType_ = 'M'; 
     // set stock/ current copies of movie
     currCopies_ = 10;
-    // set the movieGenre to "F" (Funny) for Comedy into the Movie class
-    movieGenre_ = 'F'; 
-    //set max number of copies in
-    maxCopies_ = 10;
+    // set the genre_ to "F" (Funny) for Comedy into the Movie class
+    genre_ = 'F'; 
+    //set max number of copies
+    maxCopies_ = 26;
 }
 //print Comedy
 void Comedy::print(ostream &out) const
 {
-    out << movieGenre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << yearReleased_ << " " << endl;
+    //output format for Comedy: F (genre_), stock (currCopies_), director_, title_, yearReleased_
+    out << genre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << yearReleased_ << " " << endl;
 }
 
 
