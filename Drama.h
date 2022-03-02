@@ -25,17 +25,21 @@ public:
   virtual ~Drama(); // destructor
 
   virtual Item* create() const; // create() function can be used after the types of Movie
-  virtual char returnItemType() const;
-  virtual char returnItemGenre() const;
+  virtual char getItemType() const;
+  virtual char getGenre() const;
+
   // assignment operator
   virtual Item& operator=(const Item &item); 
+
   // virtual comparison operators 
   virtual bool operator==(const Item &item) const;
   virtual bool operator!=(const Item &item) const;
   virtual bool operator<(const Item &item) const;
   virtual bool operator>(const Item &item) const;
+
   // setting item
   virtual void setItem(istream &data);
+  
   //print
   virtual void print(ostream &out) const;
 
