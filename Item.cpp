@@ -11,9 +11,9 @@
 #include "Item.h"
 
 // ostream operator<<
-ostream &operator<<(ostream &out, const Item& oneItem)
+ostream &operator<<(ostream &out, const Item &item)
 {
-    oneItem.print(out);
+    item.print(out);
     return out;
 }
 // default constructor - initialize privtates/protecteds
@@ -21,7 +21,7 @@ Item::Item()
 {
     int maxCopies_ = 10; //max number of copies of item 
     int currCopies_ = ' '; // number of current copies of item
-    char itemType_ = 'I'; // indicating it's a movie
+    char itemType_ = 'Movie'; // indicating it's a movie
     char mediaType_ = 'DVD'; // indicating the format (D - DVD)
 
 }

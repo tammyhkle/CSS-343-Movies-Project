@@ -10,6 +10,7 @@
  **/
 
 #include "Drama.h"
+#include <iomanip>
 
 //default constructor
 Drama::Drama()
@@ -52,12 +53,12 @@ bool Drama::operator==(const Item& item) const
     return (this->title_ == movieDrama.title_ && this->director_ == movieDrama.director_);
 }
 // virtual comparison operator!=
-bool Drama::operator!=(const Item& item) const
+bool Drama::operator!=(const Item &item) const
 {
     return !this->operator==(item);
 }
 // virtual comparison operator<
-bool Drama::operator<(const Item& item) const
+bool Drama::operator<(const Item &item) const
 {
     const Drama& movieDrama = static_cast<const Drama&>(item);
     // sorted by directors name then title of movie
@@ -72,7 +73,7 @@ bool Drama::operator<(const Item& item) const
     return false;
 }
 // virtual comparison operator>
-bool Drama::operator>(const Item& item) const
+bool Drama::operator>(const Item &item) const
 {
     const Drama& movieDrama = static_cast<const Drama&>(item);
     if (this->operator==(item) || this->operator<(item))
@@ -90,7 +91,7 @@ bool Drama::operator>(const Item& item) const
     return false;
 }
 //set Item
-void Drama::setItem(istream& infile)
+void Drama::setItem(istream &infile)
 {
     //Insert the director
     getline(infile, director_, ','); 
@@ -99,7 +100,7 @@ void Drama::setItem(istream& infile)
     // insert the yearReleased
     infile >> yearReleased_;
     // set the itemType into the Item class
-    itemType_ = 'DVD'; 
+    itemType_ = 'Movie'; 
     // set stock/ current copies of movie
     currCopies_ = 10;
     // set the movieGenre to "D" for Drama into the Movie class
@@ -108,7 +109,7 @@ void Drama::setItem(istream& infile)
     maxCopies_ = 10;
 }
 //print Drama
-void Drama::print(ostream& out) const
+void Drama::print(ostream &out) const
 {
     out << movieGenre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << yearReleased_ << " " << endl;
 }

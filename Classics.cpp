@@ -36,7 +36,7 @@ Item* Classics::create() const
     return new Classics;
 }
 //assignment operator
-Item& Classics::operator=(const Item& item)
+Item& Classics::operator=(const Item &item)
 {
     const Classics& movieClassics = static_cast<const Classics&>(item);
     this->currCopies_ = movieClassics.currCopies_; //stock
@@ -47,7 +47,7 @@ Item& Classics::operator=(const Item& item)
     return *this;
 }
 // virtual comparison operator==
-bool Classics::operator==(const Item& item) const
+bool Classics::operator==(const Item &item) const
 {
     const Classics& movieClassics = static_cast<const Classics&>(item);
     return (this->title_ == movieClassics.title_ && this->director_ == movieClassics.director_);
@@ -58,7 +58,7 @@ bool Classics::operator!=(const Item& item) const
     return !this->operator==(item);
 }
 // virtual comparison operator<
-bool Classics::operator<(const Item& item) const
+bool Classics::operator<(const Item &item) const
 {
     const Classics& movieClassics = static_cast<const Classics&>(item);
     // sorted by directors name then title of movie
@@ -73,7 +73,7 @@ bool Classics::operator<(const Item& item) const
     return false;
 }
 // virtual comparison operator>
-bool Classics::operator>(const Item& item) const
+bool Classics::operator>(const Item &item) const
 {
     const Classics& movieClassics = static_cast<const Classics&>(item);
     if (this->operator==(item) || this->operator<(item))
@@ -91,7 +91,7 @@ bool Classics::operator>(const Item& item) const
     return false;
 }
 //set Item
-void Classics::setItem(istream& infile)
+void Classics::setItem(istream &infile)
 {
     //Insert the director
     getline(infile, director_, ','); 
@@ -100,16 +100,16 @@ void Classics::setItem(istream& infile)
     // insert the yearReleased
     infile >> yearReleased_;
     // set the itemType into the Item class
-    itemType_ = 'DVD'; 
+    itemType_ = 'Movie'; 
     // set stock/ current copies of movie
     currCopies_ = 10;
     // set the movieGenre to "D" for Drama into the Movie class
-    movieGenre_ = 'D'; 
+    movieGenre_ = 'C'; 
     //set max number of copies in
     maxCopies_ = 10;
 }
 //print Classics
-void Classics::print(ostream& out) const
+void Classics::print(ostream &out) const
 {
     out << movieGenre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << majorActor_ << " " << dateReleased_ << " " << endl;
 }

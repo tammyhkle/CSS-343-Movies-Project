@@ -26,7 +26,7 @@ char Comedy::returnItemType() const
     return itemType_;
 }
 //return item type genre 
-char Comedy::returnItemGenre() const
+char Comedy::returnItemTypeGenre() const
 {
     return movieGenre_;
 }
@@ -36,7 +36,7 @@ Item* Comedy::create() const
     return new Comedy;
 }
 //assignment operator
-Item& Comedy::operator=(const Item& item)
+Item& Comedy::operator=(const Item &item)
 {
     const Comedy& movieComedy = static_cast<const Comedy&>(item);
     this->currCopies_ = movieComedy.currCopies_; //stock
@@ -46,18 +46,18 @@ Item& Comedy::operator=(const Item& item)
     return *this;
 }
 // virtual comparison operator==
-bool Comedy::operator==(const Item& item) const
+bool Comedy::operator==(const Item &item) const
 {
     const Comedy& movieComedy = static_cast<const Comedy&>(item);
     return (this->title_ == movieComedy.title_ && this->director_ == movieComedy.director_);
 }
 // virtual comparison operator!=
-bool Comedy::operator!=(const Item& item) const
+bool Comedy::operator!=(const Item &item) const
 {
     return !this->operator==(item);
 }
 // virtual comparison operator<
-bool Comedy::operator<(const Item& item) const
+bool Comedy::operator<(const Item &item) const
 {
     const Comedy& movieComedy = static_cast<const Comedy&>(item);
     // sorted by Title of movie, then directors name 
@@ -72,7 +72,7 @@ bool Comedy::operator<(const Item& item) const
     return false;
 }
 // virtual comparison operator>
-bool Comedy::operator>(const Item& item) const
+bool Comedy::operator>(const Item &item) const
 {
     const Comedy& movieComedy = static_cast<const Comedy&>(item);
     if (this->operator==(item) || this->operator<(item))
@@ -90,7 +90,7 @@ bool Comedy::operator>(const Item& item) const
     return false;
 }
 //set Item
-void Comedy::setItem(istream& infile)
+void Comedy::setItem(istream &infile)
 {
     //Insert the director
     getline(infile, director_, ','); 
@@ -99,7 +99,7 @@ void Comedy::setItem(istream& infile)
     // insert the yearReleased
     infile >> yearReleased_;
     // set the itemType into the Item class
-    itemType_ = 'DVD'; 
+    itemType_ = 'Movie'; 
     // set stock/ current copies of movie
     currCopies_ = 10;
     // set the movieGenre to "F" (Funny) for Comedy into the Movie class
@@ -108,7 +108,7 @@ void Comedy::setItem(istream& infile)
     maxCopies_ = 10;
 }
 //print Comedy
-void Comedy::print(ostream& out) const
+void Comedy::print(ostream &out) const
 {
     out << movieGenre_ << " " << currCopies_ << " " << director_ << " " << title_ << " " << yearReleased_ << " " << endl;
 }

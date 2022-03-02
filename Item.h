@@ -23,7 +23,7 @@ using namespace std;
 
 class Item {
   friend class BSTree;
-  friend ostream &operator<<(ostream&, const Item&);
+  friend ostream &operator<<(ostream &out, const Item &item);
 
 public:
   Item(); // default constructor

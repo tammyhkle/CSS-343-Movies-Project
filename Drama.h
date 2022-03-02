@@ -28,16 +28,16 @@ public:
   virtual char returnItemType() const;
   virtual char returnItemGenre() const;
   // assignment operator
-  virtual Item& operator=(const Item&); 
+  virtual Item& operator=(const Item &item); 
   // virtual comparison operators 
-  virtual bool operator==(const Item&) const;
-  virtual bool operator!=(const Item&) const;
-  virtual bool operator<(const Item&) const;
-  virtual bool operator>(const Item&) const;
+  virtual bool operator==(const Item &item) const;
+  virtual bool operator!=(const Item &item) const;
+  virtual bool operator<(const Item &item) const;
+  virtual bool operator>(const Item &item) const;
   // setting item
-  virtual void setItem(istream& data);
+  virtual void setItem(istream &data);
   //print
-  virtual void print(ostream& out) const;
+  virtual void print(ostream &out) const;
 
 private:
   string director_;

@@ -22,9 +22,9 @@ MovieFactory::MovieFactory()
     movieFac.push_back(new Classics);
     
     //Down below is throwing errors
-    //movieMap.insert({'F', 10});
-    //movieMap.insert({'D', 10});
-    //movieMap.insert({'C', 10});
+    movieMap.insert({ 'F', 0});
+    movieMap.insert({ 'D', 1});
+    movieMap.insert({ 'C', 2});
 }
 // destructor - deletes movie objects from vector 
 MovieFactory::~MovieFactory()

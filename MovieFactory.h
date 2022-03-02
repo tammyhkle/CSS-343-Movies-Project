@@ -27,7 +27,7 @@ public:
   MovieFactory(); // default constructor
   virtual ~MovieFactory(); // destructor - deletes movie objects from vector 
 
-  Item *create(char prefix) const override; // creating the movie object, overrides Item's create function
+  Item *create(char movieType) const override; // creating the movie object, overrides Item's create function
   // override is optional
     
 private:
