@@ -24,7 +24,8 @@ class ItemFactory {
 public:
   ItemFactory(); // default constructor
   virtual ~ItemFactory(); // destructor
-  virtual Item *create(char prefix) const = 0; // where we create the item, using a char prefix that's been read and     passed in. We keep it virtual since it's going to be overriden.
+  virtual Item *create(char prefix) const = 0; //where we create the item, using a char prefix that's been read and
+                                               //passed in. We keep it virtual since it's going to be overriden.
 };
 
 #endif // ITEMFACTORY_H

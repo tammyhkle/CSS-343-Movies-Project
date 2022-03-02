@@ -12,6 +12,7 @@
 // default constructor
 ItemFactory::ItemFactory()
 {};
+
  // destructor - deletes ItemFactory object
 ItemFactory::~ItemFactory() 
 {};
