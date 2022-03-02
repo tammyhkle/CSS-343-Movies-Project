@@ -17,15 +17,17 @@ ostream &operator<<(ostream &out, const Movie &movie)
 Movie::Movie()
 {
     title_ = "";
-    movieGenre_ = 'C', 'F', 'D';
-    yearReleased_ = 1000;
-    itemType_ = 'Movie';
-    mediaType_ = 'DVD';
+    genre_ = 'Z'; //Setting to Z so we know that if genre doesn't change to F, C, or D, then it's invalid
+    yearReleased_ = 0; //setting to 0 bc year can be any
+    itemType_ = 'M'; //M for Movie
+    mediaType_ = 'D'; //D for DVD
 } 
+
 // destructor
 Movie::~Movie()
 {
 }
+
 //print - virtual print that prints the data of movie object
 void Movie::print (ostream &out) const
 {
