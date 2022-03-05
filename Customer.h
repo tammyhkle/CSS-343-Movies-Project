@@ -1,37 +1,45 @@
 /*
-Customer object stores the customer info that's been read from the file. This includes a unique four-digit ID, their first and last name, and also a history vector where we store the transactions of the customer. 
+Customer object stores the customer info that's been read from the file. This
+includes a unique four-digit ID, their first and last name, and also a history
+vector where we store the transactions of the customer.
 */
-
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
-
+#include "BSTree.h"
+#include "HashMap.h"
+#include "Transaction.h"
 #include <iostream>
 #include <string>
 #include <vector>
-
-#include "HashMap.h"
-
 using namespace std;
 
 class Customer {
-  //friend class Hashmap;
-  friend ostream& operator<<(ostream&, const BSTree&);
+  // friend class Hashmap;
+  friend ostream &operator<<(ostream &, const BSTree &);
 
 public:
-  Customer(); // constructor
-  virtual ~Customer(); // destructor
+  // default constructor
+  Customer();
+  // destructor
+  virtual ~Customer();
 
-  void addToHistory(Transaction*& ); // adding the transaction to customer's history
-  //void printHistory const(); // printing out customer's history
-  int getCustomerID(); // returns customer ID
-  string getFirstName(); // returns customer firstName
-  string getLastName(); // returns customer lastName
+  // adding the transaction to customer's history
+  void addToHistory(Transaction *&);
+  // printing out customer's history
+  void printHistory const();
+  // returns customer ID
+  int getCustomerID();
+  // returns customer firstName
+  string getFirstName();
+  // returns customer lastName
+  string getLastName();
 
 private:
-  int customerID; // unique ID for customer
-  string firstName; // customer firstname
-  string lastName; // customer lastname
-  vector<Transaction*> history; // vector where we store the transactions objects
+  int customerID;
+  string firstName;
+  string lastName;
+  // vector where we store the transactions objects
+  vector<Transaction *> history;
 };
 
 #endif // CUSTOMER_H

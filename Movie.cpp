@@ -4,35 +4,34 @@
  * @brief Movie class - Movie are children classes of Item
  * @date 2022-02-26
  **/
-
 #include "Movie.h"
 
-//ostream operator<<
-ostream &operator<<(ostream &out, const Movie &movie)
+// ostream operator<<
+ostream &operator<<(ostream &out, const Movie &movie) 
 {
     movie.print(out);
     return out;
 }
+
 // constructor
-Movie::Movie()
+Movie::Movie() 
 {
     title_ = "";
-    genre_ = 'Z'; //Setting to Z so we know that if genre doesn't change to F, C, or D, then it's invalid
-    yearReleased_ = 0; //setting to 0 bc year can be any
-    itemType_ = 'M'; //M for Movie
-    mediaType_ = 'D'; //D for DVD
-} 
+    // Setting to Z, if genre no change to F/C/D, then it's invalid
+    genre_ = 'Z';
+    // setting to 0 bc year can be any
+    yearReleased_ = 0;
+    // M for Movie
+    itemType_ = 'M';
+    // D for DVD
+    mediaType_ = 'D';
+}
 
 // destructor
-Movie::~Movie()
-{
+Movie::~Movie() {}
+
+// print - virtual print that prints the data of movie object
+void Movie::print(ostream &out) const 
+{ 
+    this->print(out); 
 }
-
-//print - virtual print that prints the data of movie object
-void Movie::print (ostream &out) const
-{
-    this->print(out);
-}
-
-
-

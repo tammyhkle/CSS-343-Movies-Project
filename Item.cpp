@@ -7,33 +7,29 @@
  * Extenibles can be added (i.e. music)
  * @date 2022-02-26
  **/
-
 #include "Item.h"
 
 // ostream operator<<
-ostream &operator<<(ostream &out, const Item &item)
+ostream &operator<<(ostream &out, const Item &item) 
 {
     item.print(out);
     return out;
 }
 // default constructor - initialize privtates/protecteds
-Item::Item()
+Item::Item() 
 {
-    int maxCopies_ = 10; //max number of copies of item 
-    int currCopies_ = ' '; // number of current copies of item
+    int maxCopies_ = 10;      // max number of copies of item
+    int currCopies_ = ' ';    // number of current copies of item
     char itemType_ = 'Movie'; // indicating it's a movie
-    char mediaType_ = 'DVD'; // indicating the format (D - DVD)
-
+    char mediaType_ = 'DVD';  // indicating the format (D - DVD)
 }
-// destructor  
-Item::~Item()
+// destructor
+Item::~Item() {}
+// decrement -1 copies of private variables (for each item borrowed)
+// denoted as 'B'
+void Item::borrowItem() 
 {
-}
- // decrement -1 copies of private variables (for each item borrowed)
- // denoted as 'B'
-void Item::borrowItem()
-{ 
-    if (currCopies_ > 0 )
+    if (currCopies_ > 0) 
     {
         currCopies_--;
         return;
@@ -41,8 +37,8 @@ void Item::borrowItem()
     cout << "Can't borrow, out of stock." << endl;
 }
 // increment +1 copies of private variables (for each item returned)
- // denoted as 'R'
-void Item::returnItem()
+// denoted as 'R'
+void Item::returnItem() 
 {
     if (currCopies_ < maxCopies_)
     {
@@ -50,4 +46,4 @@ void Item::returnItem()
         return;
     }
     cout << "Can't return, no space." << endl;
-} 
+}

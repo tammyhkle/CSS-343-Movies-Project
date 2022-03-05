@@ -1,19 +1,24 @@
 #ifndef DISPLAYINVENTORY_H
 #define DISPLAYINVENTORY_H
 
-#include <string>
-
 #include "Transaction.h"
-
+#include <string>
 using namespace std;
 
 class DisplayInventory : public Transaction {
 
-  public:
-    DisplayInventory();                               // default constructor
-    virtual ~DisplayInventory();                      // destructor
-    virtual Transaction *create() const;              // virtual create method
-    virtual bool setData(istream &);                  // virtual set data method
-    virtual void doTransaction(Storage &, HashMap &); // displays the catalogue
+public:
+  // default constructor
+  DisplayInventory();
+  // destructor
+  virtual ~DisplayInventory();
+
+  // virtual create method
+  virtual Transaction *create() const;
+  // virtual set data method
+  virtual bool setData(istream &);
+  // displays the catalogue
+  virtual void doTransaction(Storage &, HashMap &);
 };
-#endif //DISPLAYINVENTORY_H
+
+#endif // DISPLAYINVENTORY_H

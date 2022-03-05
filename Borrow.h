@@ -1,31 +1,39 @@
 #ifndef BORROW_H
 #define BORROW_H
 
-#include <string>
-
+#include "Customer.h"
+#include "Movie.h"
+#include "MovieFactory.h"
 #include "Transaction.h"
-
+#include <string>
 using namespace std;
 
 class Borrow : public Transaction {
 
-  public:
-    Borrow();                      // default constructor,
-    virtual ~Borrow();             // destructor
-    virtual bool setData(istream &); // sets data for item and patron involved
-                                     // in the Borrow transaction
+public:
+  // default constructor,
+  Borrow();
+  // destructor
+  virtual ~Borrow();
+  // sets data for item and patron involved in the Borrow transaction
+  virtual bool setData(istream &);
 
-    virtual Transaction*
-    create() const; // creates and return new Borrow object
-    virtual void doTransaction(Storage &, HashMap &); // overridden from Transaction
-                                           // performs Borrow on movie and
-                                           // adds Borrow details to
-                                           // customer's vector of transactions
+  // creates and return new Borrow object
+  virtual Transaction *create() const;
+  /*overridden from Transaction
+  performs Borrow on movie and
+  adds Borrow details to
+  customer's vector of transactions
+  */
+  virtual void doTransaction(Storage &, HashMap &);
 
 private:
-    Item *theItem;           // the movie that is being returned
-    int custID;            // the Customer that returns the movie
-    MovieFactory movieFactory;     // factory to create Item objects
+  // the movie that is being returned
+  Item *theItem;
+  // the Customer that returns the movie
+  int custID;
+  // factory to create Item objects
+  MovieFactory movieFactory;
 };
 
-#endif //BORROW_H
+#endif // BORROW_H

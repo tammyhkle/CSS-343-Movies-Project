@@ -11,40 +11,39 @@
  * classics: C, Stock, Director, title, majorActor, releaseDate
  * @date 2022-02-26
  **/
-
-#include "Movie.h"
 #include "MovieFactory.h"
+#include "Movie.h"
 
 // default constructor - need to declare elements in hashmap and in movieFactory
-MovieFactory::MovieFactory()
+MovieFactory::MovieFactory() 
 {
-    //pushback
+    // pushback
     movieFac.push_back(new Comedy);
     movieFac.push_back(new Drama);
     movieFac.push_back(new Classics);
-    //insert elements - movie genre ({key, value}) into map in a random order
-    movieMap.insert(make_pair('F', 0)); 
-    movieMap.insert(make_pair('D', 1)); 
-    movieMap.insert(make_pair('C', 2)); 
+    // insert elements - movie genre ({key, value}) into map in a random order
+    movieMap.insert(make_pair('F', 0));
+    movieMap.insert(make_pair('D', 1));
+    movieMap.insert(make_pair('C', 2));
 }
-// destructor - deletes movie objects from vector 
-MovieFactory::~MovieFactory()
+// destructor - deletes movie objects from vector
+MovieFactory::~MovieFactory() 
 {
     for (int i = 0; i < movieFac.size(); i++)
     {
         delete movieFac[i];
         movieFac[i] = nullptr;
-    }
+        }
 }
 // creating the movie object, overrides Item's create function
 // override is optional
-Item* MovieFactory::create(char movieType) const 
+Item *MovieFactory::create(char movieType) const 
 {
-    if (movieMap.find(movieType) == movieMap.end())
+    if (movieMap.find(movieType) == movieMap.end()) 
     {
         return nullptr;
-    }
-    else
+    } 
+    else 
     {
         int subscript = movieMap.at(movieType);
         return movieFac[subscript]->create();

@@ -1,13 +1,10 @@
 /**
- * Driver for starting movie store tests. 
+ * Driver for starting movie store tests.
  * This driver opens the text files data4movies, data4customers, data4
  */
-
-#include <iostream>
-#include <fstream>
-
 #include "RentalManager.h"
-
+#include <fstream>
+#include <iostream>
 using namespace std;
 
 // forward declaration, implementation in store_test.cpp
@@ -34,14 +31,15 @@ int main() {
   }
 
   myManager.readInventory(inFile1);
-  myManager.readCustomers(inFile2);
+  myManager.readCustomer(inFile2);
   myManager.readCommands(inFile3);
-  
+
   inFile1.close();
   inFile2.close();
   inFile3.close();
 
   testAll();
 
-  cout << "Done." << endl; //End of main 
+  cout << "Done." << endl;
 };
+// End of main

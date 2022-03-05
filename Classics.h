@@ -11,33 +11,35 @@
 #define CLASSICS_H
 
 #include "Movie.h"
-
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 class Classics : public Movie {
 
 public:
-  Classics(); //default constructor
-  virtual ~Classics(); // destructor
+  // default constructor
+  Classics();
+  // destructor
+  virtual ~Classics();
 
   // create() function can be used after the types of Movie
-  virtual Item* create() const;
+  virtual Item *create() const;
   virtual char getItemType() const;
   virtual char getGenre() const;
+
   // assignment operator
-  virtual Item& operator=(const Item&);
-  // virtual comparison operators 
-  virtual bool operator==(const Item&) const;
-  virtual bool operator!=(const Item&) const;
-  virtual bool operator<(const Item&) const;
-  virtual bool operator>(const Item&) const;
+  virtual Item &operator=(const Item &);
+  // virtual comparison operators
+  virtual bool operator==(const Item &) const;
+  virtual bool operator!=(const Item &) const;
+  virtual bool operator<(const Item &) const;
+  virtual bool operator>(const Item &) const;
+
   // setting item
   virtual void setItem(istream &data);
-  //print
-  virtual void print(ostream& out) const;
+  // print
+  virtual void print(ostream &out) const;
 
 private:
   string director_;
@@ -46,4 +48,4 @@ private:
   int monthReleased_;
 };
 
-#endif //CLASSICS_H
+#endif // CLASSICS_H
