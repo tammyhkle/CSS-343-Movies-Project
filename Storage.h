@@ -1,9 +1,14 @@
+/**
+ * @file Storage.h
+ * @author Le, Tammy
+ * @brief Storage class - contains a map of the BSTree objects 
+ * @date 2022-02-26
+ **/
 #ifndef STORAGE_H
 #define STORAGE_H
 
 #include "BSTree.h"
 #include "Item.h"
-#include <fstream>
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -21,13 +26,13 @@ public:
   // deleting value in BSTree
   void makeEmpty();
   // insert means add, changing to true/false (bool)
-  bool insertItem(Item *);
+  bool insertItem(Item *item);
   // finds item object inside on of the BSTree object in BSTree Map
   bool retrieveItem(Item *, Item *&) const;
   // finds BSTree object stored in the BSTree Map - contains Item objects
   bool retrieveBSTree(Item *, BSTree *&) const;
   // prints the data of Item objects from BSTree
-  void printStorage(ostream &) const;
+  void print(ostream &) const;
 
 private:
   /*Key of map are 2-element char arrays.
