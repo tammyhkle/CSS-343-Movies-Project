@@ -1,3 +1,12 @@
+/**
+ * @file RentalManager.h
+ * @author Le, Tammy
+ * @brief RentalManager class - Processes data from the Store's Inventory, Customers, and Transactions/ Commands
+ * Notes:
+ * Files are read in from main 
+ * readMovies, readInventory, readCustomers, readCommands
+ * @date 2022-02-26
+ **/
 #ifndef RENTALMANAGER_H
 #define RENTALMANAGER_H
 
