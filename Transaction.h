@@ -1,3 +1,9 @@
+/**
+ * @file Transaction.h
+ * @author Le, Tammy
+ * @brief Transaction class
+ * @date 2022-02-26
+ **/
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 

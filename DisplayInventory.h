@@ -1,3 +1,9 @@
+/**
+ * @file DisplayInventory.h
+ * @author Le, Tammy
+ * @brief Transaction class
+ * @date 2022-02-26
+ **/
 #ifndef DISPLAYINVENTORY_H
 #define DISPLAYINVENTORY_H
 

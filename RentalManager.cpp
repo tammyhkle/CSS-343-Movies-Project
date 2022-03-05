@@ -32,7 +32,7 @@ void RentalManager::readInventory(istream& inFile)
             break;
         }
         itemType = "M";
-        item = this->movieFac.createItem(itemType, genre);
+        item = this->movieFac.create(genre);
         
         if(item == nullptr)
         {
@@ -40,7 +40,7 @@ void RentalManager::readInventory(istream& inFile)
             getline(inFile, invalidLine);
             continue;
         }
-        infile.get();
+        inFile.get();
         item->setItem(inFile);
         catalouge.insertItem(item);
     }

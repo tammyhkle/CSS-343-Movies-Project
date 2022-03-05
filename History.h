@@ -1,3 +1,9 @@
+/**
+ * @file History.h
+ * @author Le, Tammy
+ * @brief History class
+ * @date 2022-02-26
+ **/
 #ifndef HISTORY_H
 #define HISTORY_H
 #include "Customer.h"

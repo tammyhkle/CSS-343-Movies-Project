@@ -1,3 +1,9 @@
+/**
+ * @file Return.h
+ * @author Le, Tammy
+ * @brief Return class
+ * @date 2022-02-26
+ **/
 #ifndef RETURN_H
 #define RETURN_H
 #include "Customer.h"

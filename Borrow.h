@@ -1,3 +1,9 @@
+/**
+ * @file Borrow.h
+ * @author Le, Tammy
+ * @brief Borrow class
+ * @date 2022-02-26
+ **/
 #ifndef BORROW_H
 #define BORROW_H
 

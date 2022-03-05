@@ -1,6 +1,9 @@
-/*
-TransFactory creates and returns a new transaction object
-*/
+/**
+ * @file TransFactory.h
+ * @author Le, Tammy
+ * @brief TransFactory class - creates and returns a new transaction object
+ * @date 2022-02-26
+ **/
 #ifndef TRANSFACTORY_H
 #define TRANSFACTORY_H
 
@@ -23,7 +26,7 @@ public:
   // virtual destrcutor
   virtual ~TransFactory();
   // create Treansaction method
-  Transaction *createTransaction(char) const;
+  Transaction *createTransaction(char transType, char genre) const;
 
 private:
   /* HashMap with keys equal to char variables of every possible movie type
