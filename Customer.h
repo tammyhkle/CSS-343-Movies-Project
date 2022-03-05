@@ -1,8 +1,13 @@
-/*
-Customer object stores the customer info that's been read from the file. This
-includes a unique four-digit ID, their first and last name, and also a history
-vector where we store the transactions of the customer.
-*/
+/**
+ * @file Customer.h
+ * @author Le, Tammy
+ * @brief Customer class - stores customers information, read from file
+ * Notes
+ * Includes unique 4 digit customerID
+ * firstName, lastName
+ * history vector - stores transactions of customer
+ * @date 2022-02-26
+ **/
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include "BSTree.h"
@@ -24,9 +29,7 @@ public:
   virtual ~Customer();
 
   // adding the transaction to customer's history
-  void addToHistory(Transaction *&);
-  // printing out customer's history
-  void printHistory const();
+  void setData(int, string, string);
   // returns customer ID
   int getCustomerID();
   // returns customer firstName
@@ -40,6 +43,10 @@ private:
   string lastName;
   // vector where we store the transactions objects
   vector<Transaction *> history;
+
+  bool setCustomerID(int);
+  bool setFirstName(string);
+  bool setLastName(string);
 };
 
 #endif // CUSTOMER_H
