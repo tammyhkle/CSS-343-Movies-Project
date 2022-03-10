@@ -11,18 +11,20 @@
 #define RENTALMANAGER_H
 
 #include "HashMap.h"
-#include "Item.h"
+#include "MovieFactory.h"
 #include "Storage.h"
 #include "TransFactory.h"
-#include "Transaction.h"
+
 #include <fstream>
 #include <iostream>
 #include <string>
 using namespace std;
 
+class TransFactory;
+class HashMap;
+class Storage;
 class RentalManager {
-  friend Transaction;
-  friend ostream &operator<<(ostream &, const BSTree &);
+//friend ostream &operator<<(ostream &out, const BSTree &bst);
 
 public:
   // constructor default
@@ -31,18 +33,18 @@ public:
   ~RentalManager();
   // preconditions: variable of type ifstream& contains correctly formatted .txt
   // file must be passed in
-  void readMovies(istream &);
-  void readInventory(istream &);
-  void readCustomer(istream &);
-  void readCommands(istream &);
+  void readInventory(istream & inFile);
+  void readCustomer(istream & inFile);
+  void readCommands(istream& inFile);
 
 private:
-  MovieFactory movieFac;
-  TransFactory transFac;
+
+  MovieFactory movieFac_;
+  TransFactory transFac_;
   // hashmap of customer's account - call object method that process customer data
-  HashMap customer;
+  HashMap customersMap_;
   // this contains map of BSTree objects that each contain Items of specific type
-  Storage catalouge;
+  Storage catalogueMap_;
 };
 
 #endif // RENTALMANAGER_H

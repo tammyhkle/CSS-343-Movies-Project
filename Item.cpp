@@ -10,18 +10,18 @@
 #include "Item.h"
 
 // ostream operator<<
-ostream &operator<<(ostream &out, const Item &item) 
+ostream &operator<<(ostream &output, const Item &item) 
 {
-    item.print(out);
-    return out;
+    item.print(output);
+    return output;
 }
 // default constructor - initialize privtates/protecteds
 Item::Item() 
 {
-    int maxCopies_ = 10;      // max number of copies of item
+    int maxCopies_ = 26;      // max number of copies of item
     int currCopies_ = ' ';    // number of current copies of item
-    char itemType_ = 'Movie'; // indicating it's a movie
-    char mediaType_ = 'DVD';  // indicating the format (D - DVD)
+    char itemType_ = 'D';     // indicating the format (D - DVD)
+    char mediaType_ = 'M';    // m for movie
 }
 // destructor
 Item::~Item() {}

@@ -11,12 +11,20 @@
 #ifndef MOVIEFACTORY_H
 #define MOVIEFACTORY_H
 
+#include "ItemFactory.h"
+#include "Item.h"
+#include "Movie.h"
+#include "Drama.h"
+#include "Classics.h"
+#include "Comedy.h"
+/*
 #include "Classics.h"
 #include "Comedy.h"
 #include "Drama.h"
 #include "Item.h"
 #include "ItemFactory.h"
 #include "Movie.h"
+*/
 #include <unordered_map>
 #include <vector>
 using namespace std;
@@ -34,10 +42,10 @@ public:
 private:
   // Hashmap with keys equal to char variables of every possible movie genre
   // and values equal to integers ranging from 0 to the number of move types -1
-  unordered_map<char, int> movieMap;
+  unordered_map<char, int> movieMap_;
   // vector with elements that are initialized as new movie objects of every
   // possible movie type
-  vector<Movie *> movieFac;
+  vector<Movie *> movieFac_;
 };
 
 #endif // MOVIEFACTORY_H

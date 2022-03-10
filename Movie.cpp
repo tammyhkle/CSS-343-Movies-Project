@@ -7,10 +7,10 @@
 #include "Movie.h"
 
 // ostream operator<<
-ostream &operator<<(ostream &out, const Movie &movie) 
+ostream &operator<<(ostream &output, const Movie &movie) 
 {
-    movie.print(out);
-    return out;
+    movie.print(output);
+    return output;
 }
 
 // constructor
@@ -22,7 +22,7 @@ Movie::Movie()
     // setting to 0 bc year can be any
     yearReleased_ = 0;
     // M for Movie
-    itemType_ = 'M';
+    itemType_ = 'D';
     // D for DVD
     mediaType_ = 'D';
 }
@@ -31,7 +31,7 @@ Movie::Movie()
 Movie::~Movie() {}
 
 // print - virtual print that prints the data of movie object
-void Movie::print(ostream &out) const 
+void Movie::print(ostream &output) const 
 { 
-    this->print(out); 
+    output << title_ << genre_ << yearReleased_ << itemType_ << mediaType_;
 }

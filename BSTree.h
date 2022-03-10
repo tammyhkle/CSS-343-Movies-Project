@@ -21,11 +21,10 @@ using namespace std;
 
 // forward reference to Item Class
 class Item;
-
 class BSTree {
   struct Node;
   friend class Item;
-  friend ostream &operator<<(ostream &out, const BSTree &bst);
+  friend ostream &operator<<(ostream &output, const BSTree &bst);
 
 public:
   // default constructor
@@ -43,20 +42,18 @@ public:
   bool find(Item *);
   // retrieves an item from the BSTree
   bool retrieve(Item *target, Item *&retrieverItem) const;
-  // prints
-  void printMovie();
+  // private print for ostream <<
+  void print(ostream &out) const;
 
 private:
   struct Node {
-    Item *itemPtr;
-    Node *left;
-    Node *right;
+    Item *itemPtr_;
+    Node *left_;
+    Node *right_;
   };
-  Node *root;
+  Node* root;
   // retrieve helper function - recursive
-  Node *retrieveHelper(Node *&, Item *) const;
-  // private print for ostream <<
-  void print(ostream &out) const;
+  Node* retrieveHelper(Node *, Item *) const;
 };
 
 #endif // BSTREE_H

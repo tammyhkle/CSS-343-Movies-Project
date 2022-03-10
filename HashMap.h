@@ -11,14 +11,15 @@
 #define HASHMAP_H
 
 #include "Customer.h"
-#include <fstream>
+#include <iostream>
 #include <string>
 using namespace std;
 
+class Customer;
 class HashMap {
 public:
   // ostream operator<<
-  friend ostream &operator<<(ostream &, const Customer &);
+  friend ostream &operator<<(ostream &output, const Customer &customer);
 
   // default constructor
   HashMap();
@@ -27,7 +28,7 @@ public:
 
   // adding new customers into the HashMap; preconditions: pass int for ID, 2
   // strings firstName and lastname
-  bool addCustomer(int customerID, ifstream&);
+  bool addCustomer(int customerID, istream &inFile);
   // deleteCustomer deletes a customer based on the account number
   bool deleteCustomer(Customer* customer);
   // get customer gets the customer account pointer connected to the accountNum

@@ -17,31 +17,38 @@ using namespace std;
 
 class Comedy : public Movie {
   //ostream operator<<
-  friend ostream &operator<<(ostream &out, const Comedy &comedy);
+  friend ostream &operator<<(ostream &output, const Comedy &comedy);
 
 public:
   // constructor
   Comedy();
   // destructor
-  virtual ~Comedy();
+  ~Comedy();
 
-  virtual char getItemType() const;
-  virtual char getGenre() const;
+  char getItemType() const override;
+  char getGenre() const override;
   // create() function can be used after the types of Movie
-  virtual Item *create() const;
+  Item *create() const override;
   // setting item
-  virtual void setItem(istream &data);
+  void setItem(istream &data) override;
+  void setPartialItem(istream &inFile, char itemType, char genre) override; //oop, setting partial
 
   // assignment operator
-  virtual Item &operator=(const Item &item);
-  // virtual comparison operators
-  virtual bool operator==(const Item &item) const;
-  virtual bool operator!=(const Item &item) const;
-  virtual bool operator<(const Item &item) const;
-  virtual bool operator>(const Item &item) const;
+  Item &operator=(Item &item) override;
+  // comparison operators
+ // virtual comparison operator== COMEDY
+  bool operator==(Item &item) override
+  {
+    Comedy &ptr = static_cast<Comedy &>(item);
+    cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
+    return (title_ == ptr.title_ && yearReleased_ == ptr.yearReleased_);
+  }
+  bool operator!=(Item &item) override;
+  bool operator<(Item &item) override;
+  bool operator>(Item &item) override;
 
   // print
-  virtual void print(ostream &out) const;
+  void print(ostream &output) const override;
 
 private:
   string director_;

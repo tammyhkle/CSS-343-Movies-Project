@@ -18,34 +18,36 @@
 MovieFactory::MovieFactory() 
 {
     // pushback
-    movieFac.push_back(new Comedy);
-    movieFac.push_back(new Drama);
-    movieFac.push_back(new Classics);
+    movieFac_.push_back(new Comedy);
+    movieFac_.push_back(new Drama);
+    movieFac_.push_back(new Classics);
     // insert elements - movie genre ({key, value}) into map in a random order
-    movieMap.insert(make_pair('F', 0));
-    movieMap.insert(make_pair('D', 1));
-    movieMap.insert(make_pair('C', 2));
+    movieMap_.insert(make_pair('F', 0));
+    movieMap_.insert(make_pair('D', 1));
+    movieMap_.insert(make_pair('C', 2));
 }
 // destructor - deletes movie objects from vector
 MovieFactory::~MovieFactory() 
 {
-    for (int i = 0; i < movieFac.size(); i++)
+    for (int i = 0; i < movieFac_.size(); i++)
     {
-        delete movieFac[i];
-        movieFac[i] = nullptr;
+        delete movieFac_[i];
+        movieFac_[i] = nullptr;
         }
 }
 // creating the movie object, overrides Item's create function
 // override is optional
 Item *MovieFactory::create(char movieType) const 
 {
-    if (movieMap.find(movieType) == movieMap.end()) 
+    cerr << "MovieType" << movieType << endl;
+    if (movieMap_.find(movieType) == movieMap_.end()) 
     {
         return nullptr;
     } 
     else 
     {
-        int subscript = movieMap.at(movieType);
-        return movieFac[subscript]->create();
+        int subscript = movieMap_.at(movieType);
+        cerr << "subscript" << subscript << endl;
+        return movieFac_[subscript]->create();
     }
 }

@@ -9,7 +9,6 @@
  * @date 2022-02-26
  **/
 #include "Drama.h"
-#include <iomanip>
 
 // default constructor
 Drama::Drama() { director_ = ""; }
@@ -27,7 +26,7 @@ char Drama::getGenre() const { return genre_; }
 Item *Drama::create() const { return new Drama; }
 
 // assignment operator
-Item &Drama::operator=(const Item &item) {
+Item &Drama::operator=(Item &item) {
   const Drama &movieDrama = static_cast<const Drama &>(item);
   this->currCopies_ = movieDrama.currCopies_;     // stock
   this->director_ = movieDrama.director_;         // director
@@ -35,69 +34,91 @@ Item &Drama::operator=(const Item &item) {
   this->yearReleased_ = movieDrama.yearReleased_; // year it released
   return *this;
 }
-
-// virtual comparison operator==
-bool Drama::operator==(const Item &item) const {
-  const Drama &movieDrama = static_cast<const Drama &>(item);
-  return (this->title_ == movieDrama.title_ &&
-          this->director_ == movieDrama.director_);
+// comparison operator== DRAMA
+bool Drama::operator==(Item &item) {
+   Drama &ptr = static_cast< Drama &>(item);
+    //prints
+    cerr << "Drama Director: "  << director_ << endl;
+    cerr << "movieDrama Director: "  << ptr.director_ << endl;
+    cerr << "Drama Title: "  << title_ << endl;
+    cerr << "movieDrama Title: "  << ptr.title_ << endl;
+    return (director_ == ptr.director_ && title_ == ptr.title_);
 }
-
-// virtual comparison operator!=
-bool Drama::operator!=(const Item &item) const {
-  return !this->operator==(item);
+// comparison operator!= DRAMA
+bool Drama::operator!=(Item &item) {
+	return !(*this == item);
 }
-
-// virtual comparison operator<
-bool Drama::operator<(const Item &item) const {
-  const Drama &movieDrama = static_cast<const Drama &>(item);
+// comparison operator< DRAMA
+bool Drama::operator<(Item &item) {
+  Drama &ptr = static_cast< Drama &>(item);
   // sorted by directors name then title of movie
-  if (this->director_ < movieDrama.director_) {
+  if (director_ < ptr.director_) {
     return true;
-  } else if (this->director_ == movieDrama.director_) {
-    return this->title_ < movieDrama.title_;
+  } else if (director_ == director_) {
+    return title_ < ptr.title_;
   }
   return false;
 }
-
-// virtual comparison operator>
-bool Drama::operator>(const Item &item) const {
-  const Drama &movieDrama = static_cast<const Drama &>(item);
-  if (this->operator==(item) || this->operator<(item)) {
-    return false;
-  }
-  if (this->director_ > movieDrama.director_) {
-    return true;
-  } else if (this->director_ == movieDrama.director_) {
-    return this->title_ > movieDrama.title_;
-  }
-  return false;
+// comparison operator> DRAMA
+bool Drama::operator>(Item &item) {
+  Drama &ptr = static_cast<Drama &>(item);
+  return !(*this < ptr);
 }
 
 // set Item
 void Drama::setItem(istream &infile) {
+  cerr << "Starting setItem for Drama" << endl;
+
+  //stock 
+  string stock;
+  getline(infile, stock, ',');
+  cerr << "Stock: " << stock << endl;
+
   // Insert the director
   getline(infile, director_, ',');
+  cerr << "Director: " << director_ << endl;
+
   // Grab the title of movie
-  infile.get();
+  getline(infile, title_, ',');
+  cerr << "Drama's title: " << title_ << endl;
+
   // insert the yearReleased
   infile >> yearReleased_;
+  cerr << "yearReleased: " << yearReleased_ << endl;
 
   // set defaults for rest of properties
-  // set the itemType into the Item class - M for Movie
-  itemType_ = 'M';
+  // set the itemType into the Item class - D for DVD
+  itemType_ = 'D';
   // set stock/ current copies of movie
   currCopies_ = 10;
   // set the genre_ to "D" for Drama into the Movie class
   genre_ = 'D';
   // set max number of copies in
   maxCopies_ = 26;
+
+  infile.get();
+
+  cerr << "Finished Drama setItem" << endl;
+}
+// oop, setting partial (unique to only drama)
+void Drama::setPartialItem(istream &inFile, char itemType, char genre)
+{
+  itemType_ = itemType;
+  genre_ = genre;
+  //Steven Spielberg, Schindler's List
+  getline(inFile, director_, ',');
+  getline(inFile, title_, ',');
+
+  //defaults
+  yearReleased_ = 0;
+  currCopies_ = 0;
+  maxCopies_ = 0;
 }
 
 // print Drama
-void Drama::print(ostream &out) const {
+void Drama::print(ostream &output) const {
   // output format for Drama: D (genre_), stock (currCopies_), director_,
   // title_, yearReleased_
-  out << genre_ << " " << currCopies_ << " " << director_ << " " << title_
+  output << genre_ << " " << currCopies_ << " " << director_ << " " << title_
       << " " << yearReleased_ << " " << endl;
 }

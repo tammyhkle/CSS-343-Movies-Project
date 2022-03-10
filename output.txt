@@ -1,0 +1,4594 @@
+Wed Mar  9 22:28:16 PST 2022
+Darwin Tammys-MacBook-Pro.local 20.6.0 Darwin Kernel Version 20.6.0: Wed Jan 12 22:22:42 PST 2022; root:xnu-7195.141.19~2/RELEASE_X86_64 x86_64
+uid=501(tammyle) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),701(com.apple.sharepoint.group.1),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae),702(com.apple.sharepoint.group.2)
+=====================================================
+1. Compiles without warnings with -Wall -Wextra flags
+=====================================================
+Item.cpp:22:9: warning: unused variable 'currCopies_' [-Wunused-variable]
+    int currCopies_ = ' ';    // number of current copies of item
+        ^
+Item.cpp:23:10: warning: unused variable 'itemType_' [-Wunused-variable]
+    char itemType_ = 'D';     // indicating the format (D - DVD)
+         ^
+Item.cpp:24:10: warning: unused variable 'mediaType_' [-Wunused-variable]
+    char mediaType_ = 'M';    // m for movie
+         ^
+Item.cpp:21:9: warning: unused variable 'maxCopies_' [-Wunused-variable]
+    int maxCopies_ = 100;      // max number of copies of item
+        ^
+4 warnings generated.
+In file included from RentalManager.cpp:11:
+./RentalManager.h:45:11: warning: field 'customersMap_' with variable sized type 'HashMap' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  HashMap customersMap_;
+          ^
+RentalManager.cpp:100:9: warning: unused variable 'customerID' [-Wunused-variable]
+    int customerID = 0;
+        ^
+2 warnings generated.
+In file included from main.cpp:5:
+./RentalManager.h:45:11: warning: field 'customersMap_' with variable sized type 'HashMap' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  HashMap customersMap_;
+          ^
+main.cpp:31:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+main.cpp:50:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+main.cpp:70:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+4 warnings generated.
+=====================================================
+2. Runs and produces correct output
+=====================================================
+ReadInventory begin while loop
+Count of line: 1Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Michael Curtiz
+title:  Casablanca
+majorActor: Ingrid Bergman
+monthReleased: 8
+yearReleased: 1942
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did not retrieve
+creating new bst for bst map 
+Logging insert: C
+Empty
+insert item 
+insert pair: DC,0x7f80b8405ce0
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 2Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Michael Curtiz
+title:  Casablanca
+majorActor: Humphrey Bogart
+monthReleased: 8
+yearReleased: 1942
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 3Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Victor Fleming
+title:  The Wizard of Oz
+majorActor: Judy Garland
+monthReleased: 7
+yearReleased: 1939
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 4Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Nora Ephron
+Comedy's title:  Sleepless in Seattle
+yearReleased: 1993
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did not retrieve
+creating new bst for bst map 
+Logging insert: F
+Empty
+insert item 
+insert pair: DF,0x7f80b85040a0
+DF F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 5Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Barry Levinson
+Drama's title:  Good Morning Vietnam
+yearReleased: 1988
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did not retrieve
+creating new bst for bst map 
+Logging insert: D
+Empty
+insert item 
+insert pair: DD,0x7f80b8406220
+DF F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 6Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Barry Levinson
+Drama's title:  Same Director Good Morning Vietnam
+yearReleased: 1988
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 7Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Gus Van Sant
+Drama's title:  Good Will Hunting
+yearReleased: 2000
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 8Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Woody Allen
+Comedy's title:  Annie Hall
+yearReleased: 1977
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted left: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 9Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Rob Reiner
+Comedy's title:  When Harry Met Sally
+yearReleased: 1989
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 10Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Phillippe De Broca
+Drama's title:  King of Hearts
+yearReleased: 1967
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 11Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Steven Spielberg
+Drama's title:  Schindler's List
+yearReleased: 1993
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 12Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Gore Verbinski
+Comedy's title:  Pirates of the Caribbean
+yearReleased: 2003
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 13Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Different Years
+Comedy's title:  Pirates of the Caribbean
+yearReleased: 2000
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 14Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Joel Coen
+Comedy's title:  Fargo
+yearReleased: 1996
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 15Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Jonathan Demme
+Drama's title:  Silence of the Lambs
+yearReleased: 1991
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 16Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Clint Eastwood
+Drama's title:  Unforgiven
+yearReleased: 1992
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 17Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Hal Ashby
+title:  Harold and Maude
+majorActor: Ruth Gordon
+monthReleased: 3
+yearReleased: 1971
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 18Running while loop
+testLine[0]: Z
+MovieTypeZ
+Created new movie
+Item is null
+Count of line: 19Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  George Cukor
+title:  Holiday
+majorActor: Katherine Hepburn
+monthReleased: 9
+yearReleased: 1938
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 20Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  George Cukor
+title:  Holiday
+majorActor: Cary Grant
+monthReleased: 9
+yearReleased: 1938
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 21Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Victor Fleming
+title:  Gone With the Wind
+majorActor: Vivien Leigh
+monthReleased: 2
+yearReleased: 1939
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 22Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Victor Fleming
+title:  Gone With the Wind
+majorActor: Clark Gable
+monthReleased: 2
+yearReleased: 1939
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 23Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  George Cukor
+title:  The Philadelphia Story
+majorActor: Katherine Hepburn
+monthReleased: 5
+yearReleased: 1940
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 24Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  George Cukor
+title:  The Philadelphia Story
+majorActor: Cary Grant
+monthReleased: 5
+yearReleased: 1940
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 25Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  John Huston
+title:  The Maltese Falcon
+majorActor: Humphrey Bogart
+monthReleased: 10
+yearReleased: 1941
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 26Running while loop
+testLine[0]: Z
+MovieTypeZ
+Created new movie
+Item is null
+Count of line: 27Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Frank Capra
+title:  It's a Wonderful Life
+majorActor: James Steward
+monthReleased: 11
+yearReleased: 1946
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 28Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Frank Capra
+title:  It's a Wonderful Life
+majorActor: Donna Reed
+monthReleased: 11
+yearReleased: 1946
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted left: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 29Running while loop
+testLine[0]: C
+MovieTypeC
+subscript2
+Create new classics
+Created new movie
+Starting Classics setItem
+Stock: 10
+director:  Stanley Kubrick
+title:  A Clockwork Orange
+majorActor: Malcolm McDowell
+monthReleased: 2
+yearReleased: 1971
+Finished Classics setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DC
+start of retrieveBSTree
+Key: DC
+did retrieve
+did retrieve key: DC
+Logging insert: C
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 30Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  John Landis
+Comedy's title:  National Lampoon's Animal House
+yearReleased: 1978
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 31Running while loop
+testLine[0]: D
+MovieTypeD
+subscript1
+Created new movie
+Starting setItem for Drama
+Stock: 10
+Director:  Nancy Savoca
+Drama's title:  Dogfight
+yearReleased: 1991
+Finished Drama setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DD
+start of retrieveBSTree
+Key: DD
+did retrieve
+did retrieve key: DD
+Logging insert: D
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 32Running while loop
+testLine[0]: F
+MovieTypeF
+subscript0
+Created new movie
+Starting setItem for Comedy
+Stock: 10
+Director:  Nora Ephron
+Comedy's title:  You've Got Mail
+yearReleased: 1998
+Finished Comedy setItem
+Adding item into catalouge bst
+start of insertItem
+Key: DF
+start of retrieveBSTree
+Key: DF
+did retrieve
+did retrieve key: DF
+Logging insert: F
+not empty: 
+Inserted right: 0
+Inserted item 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+Returning True 
+Finished adding item into catalouge bst
+Count of line: 33Running while loop
+testLine[0]: 
+
+MovieType
+
+Created new movie
+Item is null
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+CatalouageMap
+readCustomer begin while loop
+Count of line: 1
+Running while loop 
+rentalmanager - Customer ID: 3333
+Done setting customer's account 
+customerID: 3333
+firstName: Wicked
+lastName: Witch
+Done
+
+Count of line: 2
+Running while loop 
+rentalmanager - Customer ID: 888
+Done setting customer's account 
+customerID: 888
+firstName: Porky
+lastName: Pig
+Done
+
+Count of line: 3
+Running while loop 
+rentalmanager - Customer ID: 444
+Done setting customer's account 
+customerID: 444
+firstName: Bullwinkle
+lastName: Moose
+Done
+
+Count of line: 4
+Running while loop 
+rentalmanager - Customer ID: 999
+Done setting customer's account 
+customerID: 999
+firstName: Daffy
+lastName: Duck
+Done
+
+Count of line: 5
+Running while loop 
+rentalmanager - Customer ID: 666
+Done setting customer's account 
+customerID: 666
+firstName: Darrell
+lastName: Donkey
+Done
+
+Count of line: 6
+Running while loop 
+rentalmanager - Customer ID: 777
+Done setting customer's account 
+customerID: 777
+firstName: Sammy
+lastName: Spider
+Done
+
+Count of line: 7
+Running while loop 
+rentalmanager - Customer ID: 111
+Done setting customer's account 
+customerID: 111
+firstName: Mickey
+lastName: Mouse
+Done
+
+Count of line: 8
+Running while loop 
+rentalmanager - Customer ID: 0
+Done setting customer's account 
+customerID: 0
+firstName: Minnie
+lastName: Mouse
+Done
+
+Count of line: 9
+Running while loop 
+rentalmanager - Customer ID: 0
+Done setting customer's account 
+customerID: 0
+firstName: Larry
+lastName: Lizard
+Done
+
+Count of line: 10
+Running while loop 
+rentalmanager - Customer ID: 0
+Done setting customer's account 
+customerID: 0
+firstName: Wally
+lastName: Wacky
+Done
+
+Count of line: 11
+Running while loop 
+rentalmanager - Customer ID: 0
+Done setting customer's account 
+customerID: 0
+firstName: Freddie
+lastName: Frog
+Done
+
+Count of line: 12
+Running while loop 
+rentalmanager - Customer ID: 0
+Done setting customer's account 
+customerID: 0
+firstName: Donald
+lastName: Duck
+Done
+
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+
+catalogueMapDF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+
+Count of line: 1
+Run while loop 
+Command Type (I, H, B, R): I
+transFac create 
+Finish transFac create 
+Movie Inventory: 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+
+----------
+
+Count of line: 2
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 1000
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 3
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 5000
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 4
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 8000
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 5
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  You've Got Mail 1998 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  You've Got Mail 1998 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is greater
+F 10  John Landis  National Lampoon's Animal House 1978 
+Target is greater
+F 10  Nora Ephron  You've Got Mail 1998 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 6
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Barry Levinson  Good Morning Vietnam 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Barry Levinson  Good Morning Vietnam 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is greater
+D 10  Clint Eastwood  Unforgiven 1992 
+Target is greater
+D 10  Nancy Savoca  Dogfight 1991 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 7
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Katherine Hepburn 5 1940 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Katherine Hepburn 5 1940 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 8
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  Sleepless in Seattle 1993 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  Sleepless in Seattle 1993 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is greater
+F 10  John Landis  National Lampoon's Animal House 1978 
+Target is greater
+F 10  Nora Ephron  You've Got Mail 1998 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 9
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 10
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 11
+Run while loop 
+Command Type (I, H, B, R): R
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 12
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  Annie Hall 1977 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  Annie Hall 1977 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is greater
+F 10  John Landis  National Lampoon's Animal House 1978 
+Target is greater
+F 10  Nora Ephron  You've Got Mail 1998 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 13
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 14
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeZ
+Wrong Item Type! 
+----------
+
+Count of line: 15
+Run while loop 
+Command Type (I, H, B, R): 2
+transFac create 
+Finish transFac create 
+Count of line: 16
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 17
+Run while loop 
+Command Type (I, H, B, R): R
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 18
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Gus Van Sant  Good Will Hunting 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Gus Van Sant  Good Will Hunting 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 19
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Phillippe De Broca  King of Hearts 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Phillippe De Broca  King of Hearts 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 20
+Run while loop 
+Command Type (I, H, B, R): R
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 21
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Cary Grant 5 1940 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Cary Grant 5 1940 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 22
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 23
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 24
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  When Harry Met Sally 1989 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  When Harry Met Sally 1989 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 25
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Jonathan Demme  Silence of the Lambs 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Jonathan Demme  Silence of the Lambs 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 26
+Run while loop 
+Command Type (I, H, B, R): R
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  You've Got Mail 1998 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 27
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  You've Got Mail 1998 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  You've Got Mail 1998 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 28
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 29
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Humphrey Bogart 10 1941 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Humphrey Bogart 10 1941 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 30
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 31
+Run while loop 
+Command Type (I, H, B, R): X
+transFac create 
+Finish transFac create 
+Count of line: 32
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Cary Grant 9 1938 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Cary Grant 9 1938 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 33
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 34
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Nancy Savoca  Dogfight 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Nancy Savoca  Dogfight 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 35
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Steven Spielberg  Schindler's List 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Steven Spielberg  Schindler's List 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 36
+Run while loop 
+Command Type (I, H, B, R): R
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 37
+Run while loop 
+Command Type (I, H, B, R): Z
+transFac create 
+Finish transFac create 
+Count of line: 38
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 39
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  National Lampoon's Animal House 1978 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  National Lampoon's Animal House 1978 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 40
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 41
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 42
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 43
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Nancy Savoca  Dogfight 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Nancy Savoca  Dogfight 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 44
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Clint Eastwood  Unforgiven 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Clint Eastwood  Unforgiven 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 45
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  Fargo 1996 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  Fargo 1996 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 46
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Malcolm McDowell 2 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is less
+C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+Target is less
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 47
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  Bogus Title 2001 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  Bogus Title 2001 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 48
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeF
+subscript0
+F 0 Default  Fargo 1996 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DF
+Size of bstMap: 3
+
+Key: DF
+Start BST Retrieve 
+F 0 Default  Fargo 1996 
+Calling Helper 
+F 10  Nora Ephron  Sleepless in Seattle 1993 
+Target is less
+F 10  Woody Allen  Annie Hall 1977 
+Target is greater
+F 10  Rob Reiner  When Harry Met Sally 1989 
+Target is greater
+F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+Target is greater
+F 10  Different Years  Pirates of the Caribbean 2000 
+Target is greater
+F 10  Joel Coen  Fargo 1996 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DD
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 49
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 50
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 51
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 52
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 53
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeC
+subscript2
+Create new classics
+C 0 Default Default Title Ruth Gordon 3 1971 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DC
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Key: DC
+Start BST Retrieve 
+C 0 Default Default Title Ruth Gordon 3 1971 
+Calling Helper 
+C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+Target is greater
+C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+Target is greater
+C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+Target is greater
+C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+Target is greater
+C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+Target is greater
+C 10  George Cukor  Holiday Cary Grant 9 1938 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+Target is greater
+C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+Target is greater
+C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+Target is greater
+C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+Target is greater
+C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+Target is greater
+C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 54
+Run while loop 
+Command Type (I, H, B, R): B
+transFac create 
+Finish transFac create 
+MovieTypeD
+subscript1
+D 0  Steven Spielberg  Bogus Title 0 
+Starting doTransaction 
+start of retrieveItem
+
+The Key: DD
+Size of bstMap: 3
+
+Key: DF
+Key: DD
+Start BST Retrieve 
+D 0  Steven Spielberg  Bogus Title 0 
+Calling Helper 
+D 10  Barry Levinson  Good Morning Vietnam 1988 
+Target is greater
+D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+Target is greater
+D 10  Gus Van Sant  Good Will Hunting 2000 
+Target is greater
+D 10  Phillippe De Broca  King of Hearts 1967 
+Target is greater
+D 10  Steven Spielberg  Schindler's List 1993 
+Target is greater
+D 10  Jonathan Demme  Silence of the Lambs 1991 
+Target is greater
+D 10  Clint Eastwood  Unforgiven 1992 
+Target is greater
+D 10  Nancy Savoca  Dogfight 1991 
+Target is greater
+Null Pointer
+Error: Could not find Item.
+Key: DC
+Failed to find item
+Cannot find item
+Finish doTransaction 
+----------
+
+Count of line: 55
+Run while loop 
+Command Type (I, H, B, R): I
+transFac create 
+Finish transFac create 
+Movie Inventory: 
+DF F 10  Woody Allen  Annie Hall 1977 
+
+ F 10  Rob Reiner  When Harry Met Sally 1989 
+
+ F 10  Gore Verbinski  Pirates of the Caribbean 2003 
+
+ F 10  Different Years  Pirates of the Caribbean 2000 
+
+ F 10  Joel Coen  Fargo 1996 
+
+ F 10  Nora Ephron  Sleepless in Seattle 1993 
+
+ F 10  John Landis  National Lampoon's Animal House 1978 
+
+ F 10  Nora Ephron  You've Got Mail 1998 
+
+
+DD D 10  Barry Levinson  Good Morning Vietnam 1988 
+
+ D 10  Barry Levinson  Same Director Good Morning Vietnam 1988 
+
+ D 10  Gus Van Sant  Good Will Hunting 2000 
+
+ D 10  Phillippe De Broca  King of Hearts 1967 
+
+ D 10  Steven Spielberg  Schindler's List 1993 
+
+ D 10  Jonathan Demme  Silence of the Lambs 1991 
+
+ D 10  Clint Eastwood  Unforgiven 1992 
+
+ D 10  Nancy Savoca  Dogfight 1991 
+
+
+DC C 10  Michael Curtiz  Casablanca Ingrid Bergman 8 1942 
+
+ C 10  Michael Curtiz  Casablanca Humphrey Bogart 8 1942 
+
+ C 10  Victor Fleming  The Wizard of Oz Judy Garland 7 1939 
+
+ C 10  Hal Ashby  Harold and Maude Ruth Gordon 3 1971 
+
+ C 10  George Cukor  Holiday Katherine Hepburn 9 1938 
+
+ C 10  George Cukor  Holiday Cary Grant 9 1938 
+
+ C 10  Frank Capra  It's a Wonderful Life Donna Reed 11 1946 
+
+ C 10  Victor Fleming  Gone With the Wind Vivien Leigh 2 1939 
+
+ C 10  Victor Fleming  Gone With the Wind Clark Gable 2 1939 
+
+ C 10  George Cukor  The Philadelphia Story Katherine Hepburn 5 1940 
+
+ C 10  George Cukor  The Philadelphia Story Cary Grant 5 1940 
+
+ C 10  John Huston  The Maltese Falcon Humphrey Bogart 10 1941 
+
+ C 10  Frank Capra  It's a Wonderful Life James Steward 11 1946 
+
+ C 10  Stanley Kubrick  A Clockwork Orange Malcolm McDowell 2 1971 
+
+
+
+----------
+
+Count of line: 56
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 1000
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 57
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 1111
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 58
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 5000
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 59
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 8000
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 60
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 8888
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Count of line: 61
+Run while loop 
+Command Type (I, H, B, R): H
+transFac create 
+Finish transFac create 
+Start of setData for History 
+Customer ID: 0
+setData for History 
+Start of doTransaction for History 
+Start of doTransaction for History 
+Finished doTransaction for History 
+----------
+
+Start testStore1
+End testStore1
+Start testStore2
+End testStore2
+=====================================
+Start testStoreFinal
+End testStoreFinal
+=====================================
+Done.
+=====================================================
+3. clang-tidy warnings are fixed
+=====================================================
+WARNING: clang-tidy not available.
+=====================================================
+4. clang-format does not find any formatting issues
+=====================================================
+WARNING: clang-format not available
+=====================================================
+5. No memory leaks using g++
+=====================================================
+In file included from RentalManager.cpp:11:
+./RentalManager.h:45:11: warning: field 'customersMap_' with variable sized type 'HashMap' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  HashMap customersMap_;
+          ^
+1 warning generated.
+In file included from main.cpp:5:
+./RentalManager.h:45:11: warning: field 'customersMap_' with variable sized type 'HashMap' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  HashMap customersMap_;
+          ^
+main.cpp:31:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+main.cpp:50:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+main.cpp:70:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+4 warnings generated.
+=====================================================
+6. No memory leaks using valgrind, look for "definitely lost" 
+=====================================================
+WARNING: valgrind not available
+=====================================================
+7. Tests have full code coverage
+=====================================================
+In file included from RentalManager.cpp:11:
+./RentalManager.h:45:11: warning: field 'customersMap_' with variable sized type 'HashMap' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  HashMap customersMap_;
+          ^
+1 warning generated.
+In file included from main.cpp:5:
+./RentalManager.h:45:11: warning: field 'customersMap_' with variable sized type 'HashMap' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  HashMap customersMap_;
+          ^
+main.cpp:31:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+main.cpp:50:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+main.cpp:70:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+4 warnings generated.
+./check-code-coverage.sh: line 43: llvm-profdata: command not found
+ERROR: ./check-code-coverage.sh: Failed to create a.out.profdata
+Wed Mar  9 22:29:05 PST 2022
+=====================================================
+To create an output.txt file with all the output from this script
+Run the below command
+      ./create-output.sh > output.txt 2>&1 
+=====================================================

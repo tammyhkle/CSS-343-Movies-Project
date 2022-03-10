@@ -21,25 +21,27 @@ public:
   // default constructor
   Classics();
   // destructor
-  virtual ~Classics();
+  ~Classics();
 
   // create() function can be used after the types of Movie
-  virtual Item *create() const;
-  virtual char getItemType() const;
-  virtual char getGenre() const;
+  Item *create() const override;
+  char getItemType() const override;
+  char getGenre() const override;
 
   // assignment operator
-  virtual Item &operator=(const Item &);
-  // virtual comparison operators
-  virtual bool operator==(const Item &) const;
-  virtual bool operator!=(const Item &) const;
-  virtual bool operator<(const Item &) const;
-  virtual bool operator>(const Item &) const;
-
+  Item &operator=(Item &item) override;
+  // comparison operators
+  bool operator==(Item &item) override;
+  bool operator!=(Item &item) override;
+  bool operator<(Item &item) override;
+  bool operator>(Item &item) override;
+  
   // setting item
-  virtual void setItem(istream &data);
+  void setItem(istream &data) override;
+  void setPartialItem(istream &inFile, char itemType, char genre) override; //// oop, setting partial (unique to only classics)
+
   // print
-  virtual void print(ostream &out) const;
+  void print(ostream &output) const override;
 
 private:
   string director_;

@@ -35,20 +35,21 @@ public:
    *Item & Movie ==> abstract classes
    *create() function can be used after the types of Movie
    */
-  virtual Item *create() const = 0;
+  Item *create() const = 0;
 
   // setting item
-  virtual void setItem(istream &data) = 0;
+  void setItem(istream &data) = 0;
 
   // assignment operator
-  virtual Item &operator=(const Item &item) = 0;
-  // virtual print
-  virtual void print(ostream &out) const = 0;
-  // compare operators to sort items in BSTree
-  virtual bool operator==(const Item &item) const = 0;
-  virtual bool operator!=(const Item &item) const = 0;
-  virtual bool operator<(const Item &item) const = 0;
-  virtual bool operator>(const Item &item) const = 0;
+  //virtual Item &operator=(Item &other);
+  
+  // // compare operators to sort items in BSTree
+   //virtual bool operator==(Item &other);
+  // virtual  bool operator!=(Item &other);
+  // virtual bool operator<(Item &other);
+  // virtual bool operator>(Item &other);
+  //print
+  void print(ostream &output) const;
 
 protected:
   string title_;

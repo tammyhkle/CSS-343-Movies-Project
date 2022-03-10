@@ -12,17 +12,25 @@ DisplayInventory::DisplayInventory()
 // destructor
 DisplayInventory::~DisplayInventory()
 {}
+//get customer ID
+int DisplayInventory::getCustomerID()
+{
+    return 0;
+}
 // virtual create method
 Transaction* DisplayInventory::create() const
 {
     return new DisplayInventory;
 }
 // virtual set data method
-bool DisplayInventory::setData(istream &)
-{}
-// displays the catalogue
-void DisplayInventory::doTransaction(Storage &, HashMap &)
+bool DisplayInventory::setData(istream& )
 {
-    cout << catalouge;
+    return true;
+}
+// displays the storage 
+void DisplayInventory::doTransaction(Storage& storage, HashMap& )
+{
+    cout << "Movie Inventory: " << endl;
+    cout << storage << endl;
     return;
 }

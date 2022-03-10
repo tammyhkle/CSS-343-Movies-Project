@@ -9,18 +9,22 @@
 // constructor for class History
 History::History() 
 {
-    Customer = nullptr;
+    customerID_ = 0;
 }
 // destrcutor for History
 History::~History() 
+{}
+//get customer ID
+int History::getCustomerID()
 {
-    Customer = nullptr;
+    return customerID_;
 }
 // setData() method
-bool History::setData(Customer* customer)
+bool History::setData(istream& inFile)
 {
-    customer = aCustomer;
-    return;
+    inFile >> customerID_;
+    cerr << "Customer ID: " << customerID_ << endl;
+    return true;
 }
 // create method to create and return a new History object pointer
 Transaction* History::create() const
@@ -28,10 +32,12 @@ Transaction* History::create() const
     return new History;
 }
 // displays transaction history of customer with ID equal to value of data member custID
-void History::doTransaction(Storage & storage, HashMap & customerMap)
+void History::doTransaction(Storage& , HashMap& customerMap)
 {
-    //look for the customer* in the customer hashmap
-    Customer = customerMap.getCustomer(customer->getCustomerID());
-    cout << Customer;
+    //print history of the customer w/ customerID
+    cerr << "Start of doTransaction for History " << endl;
+    for (auto t : customerMap.getCustomer(customerID_)->history_){
+        cerr << t;
+    }
     return;
 }

@@ -11,83 +11,126 @@
 #include <iomanip>
 
 // default constructor
-Comedy::Comedy() { director_ = ""; }
+Comedy::Comedy() 
+{ 
+  director_ = ""; 
+}
 // destructor
 Comedy::~Comedy() {}
 // return item type
-char Comedy::getItemType() const { return itemType_; }
+char Comedy::getItemType() const 
+{
+  return itemType_; 
+}
 // return item type genre
-char Comedy::getGenre() const { return genre_; }
+char Comedy::getGenre() const 
+{ 
+  return genre_; 
+}
 // create() function can be used after the types of Movie
-Item *Comedy::create() const { return new Comedy; }
+Item *Comedy::create() const 
+{ 
+  return new Comedy; 
+}
+
 // assignment operator
-Item &Comedy::operator=(const Item &item) {
-  const Comedy &movieComedy = static_cast<const Comedy &>(item);
+Item &Comedy::operator=(Item &item) 
+{
+  Comedy &movieComedy = static_cast<Comedy &>(item);
   this->currCopies_ = movieComedy.currCopies_;     // stock
   this->director_ = movieComedy.director_;         // director
   this->title_ = movieComedy.title_;               // title
   this->yearReleased_ = movieComedy.yearReleased_; // year it released
   return *this;
 }
-// virtual comparison operator==
-bool Comedy::operator==(const Item &item) const {
-  const Comedy &movieComedy = static_cast<const Comedy &>(item);
-  return (this->title_ == movieComedy.title_ &&
-          this->director_ == movieComedy.director_);
+
+// // virtual comparison operator== COMEDY
+// bool Comedy::operator==(Item &item) 
+// {
+//   Comedy &ptr = static_cast<Comedy &>(item);
+//   cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
+//   return (title_ == ptr.title_ && yearReleased_ == ptr.yearReleased_);
+// }
+//  comparison operator!= COMEDY
+bool Comedy::operator!=(Item &item) {
+  Comedy &ptr = static_cast<Comedy &>(item);
+  return !this->operator==(ptr);
 }
-// virtual comparison operator!=
-bool Comedy::operator!=(const Item &item) const {
-  return !this->operator==(item);
-}
-// virtual comparison operator<
-bool Comedy::operator<(const Item &item) const {
-  const Comedy &movieComedy = static_cast<const Comedy &>(item);
+// comparison operator< COMEDY
+bool Comedy::operator<(Item &item) {
+  Comedy &ptr = static_cast<Comedy &>(item);
   // sorted by Title of movie, then directors name
-  if (this->title_ < movieComedy.title_) {
+  cerr << "Start: Comedy check log for title/ director LESS THAN operator " << endl;
+  if (title_ < ptr.title_) {
+    cerr << "Title is < item.title (is less than): " << title_ << " < " << ptr.title_ << endl;
     return true;
-  } else if (this->title_ == movieComedy.title_) {
-    return this->director_ < movieComedy.director_;
+  } else if (title_ == ptr.title_) {
+    cerr << "Title is == item.title: " << title_ << " == " << ptr.title_ << endl;
+    return director_ < ptr.director_;
   }
+  cerr << "Director_ < item.director_ (is less than): " << director_ << " < " << ptr.director_ << endl;
   return false;
 }
-// virtual comparison operator>
-bool Comedy::operator>(const Item &item) const {
-  const Comedy &movieComedy = static_cast<const Comedy &>(item);
-  if (this->operator==(item) || this->operator<(item)) {
-    return false;
-  }
-  if (this->director_ > movieComedy.director_) {
-    return true;
-  } else if (this->director_ == movieComedy.director_) {
-    return this->title_ > movieComedy.title_;
-  }
-  return false;
+// comparison operator> COMEDY
+bool Comedy::operator>(Item &item) {
+  Comedy &ptr = static_cast<Comedy &>(item);
+  cerr << "Start: Comedy check log for title/ director GREATER THAN operator " << endl;
+  return !(*this < ptr);
 }
 // set Item
 void Comedy::setItem(istream &infile) {
+  cerr << "Starting setItem for Comedy" << endl;
+
+  // stock
+  string stock;
+  getline(infile, stock, ',');
+  cerr << "Stock: " << stock << endl;
+
   // Insert the director
   getline(infile, director_, ',');
+  cerr << "Director: " << director_ << endl;
+
   // Grab the title of movie
-  infile.get();
+  getline(infile, title_, ',');
+  cerr << "Comedy's title: " << title_ << endl;
+
   // insert the yearReleased
   infile >> yearReleased_;
-  // get (and ignore) blank before year
-  infile.get();
+  cerr << "yearReleased: " << yearReleased_ << endl;
 
   // set defaults for rest of properties
-  // set the itemType into the Item class - M for Movie
-  itemType_ = 'M';
+  // set the itemType into the Item class - D for DVD
+  itemType_ = 'D';
   // set stock/ current copies of movie
   currCopies_ = 10;
   // set the genre_ to "F" (Funny) for Comedy into the Movie class
   genre_ = 'F';
   // set max number of copies
   maxCopies_ = 26;
+
+  infile.get();
+
+  cerr << "Finished Comedy setItem" << endl;
+}
+// oop, setting partial (unique to only comedy)
+void Comedy::setPartialItem(istream &inFile, char itemType, char genre) 
+{
+  itemType_ = itemType;
+  genre_ = genre;
+  // Pirates of the Caribbean, 2003
+  getline(inFile, title_, ',');
+  inFile >> yearReleased_;
+
+  // defaults
+  director_ = "Default";
+  currCopies_ = 0;
+  maxCopies_ = 0;
 }
 // print Comedy
-void Comedy::print(ostream &out) const {
+void Comedy::print(ostream &output) const 
+{
   // output format for Comedy: F (genre_), stock (currCopies_), director_,
   // title_, yearReleased_
-  out << genre_ << " " << currCopies_ << " " << director_ << " " << title_
-      << " " << yearReleased_ << " " << endl;
+  output << genre_ << " " << currCopies_ << " " << director_ << " " << title_
+         << " " << yearReleased_ << " " << endl;
 }

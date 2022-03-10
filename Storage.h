@@ -9,15 +9,19 @@
 
 #include "BSTree.h"
 #include "Item.h"
+
+//#include "BSTree.h"
 #include <iostream>
 #include <string>
 #include <unordered_map>
 using namespace std;
 
 class Storage {
-  friend ostream &operator<<(ostream &, const Storage &);
+  friend ostream &operator<<(ostream &output, const Storage &storage);
 
 public:
+  unordered_map<string, BSTree*> bstMap_;
+
   // default constructor
   Storage();
   // destructor
@@ -28,11 +32,11 @@ public:
   // insert means add, changing to true/false (bool)
   bool insertItem(Item *item);
   // finds item object inside on of the BSTree object in BSTree Map
-  bool retrieveItem(Item *, Item *&) const;
+  bool retrieveItem(Item* item, Item*& retriever) const;
   // finds BSTree object stored in the BSTree Map - contains Item objects
-  bool retrieveBSTree(Item *, BSTree *&) const;
+  bool retrieveBSTree(Item* item, BSTree*& retriever) const;
   // prints the data of Item objects from BSTree
-  void print(ostream &) const;
+  void print(ostream& out) const;
 
 private:
   /*Key of map are 2-element char arrays.
@@ -41,7 +45,7 @@ private:
   indicates the subtype of the items in the BSTree objects
   that all have the same Item type and subtype
   */
-  unordered_map<string, BSTree *> BSTreeMap;
+  //unordered_map<string, BSTree*> bstMap_;
 };
 
 #endif // STORAGE_H

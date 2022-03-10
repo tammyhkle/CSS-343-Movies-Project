@@ -20,7 +20,7 @@
   // destructor
   HashMap::~HashMap()
   {
-      int i = 0;
+      //int i = 0;
       for (int i=0; i > 0; i++)
       {
           delete customerArray[i];
@@ -29,10 +29,10 @@
   }
   // adding new customers into the HashMap; preconditions: pass int for ID, 2
   // strings firstName and lastname
-  bool HashMap::addCustomer(int customerID, ifstream& inFile)
+  bool HashMap::addCustomer(int customerID, istream &inFile)
   {
       Customer* newCustomer = new Customer();
-      newCustomer->addToHistory(customerID, inFile);
+      newCustomer->setData(customerID, inFile);
 
       if(customerID != -1)
       {
@@ -47,10 +47,12 @@
       if(customer != nullptr)
       {
           customerArray[hashify(customer->getCustomerID())] = nullptr;
+          return true;
       }
       else
       {
           cout << "Customer is not in the store's system" << endl;
+          return false;
       }
   }
   // get customer gets the customer account pointer connected to the accountNum
@@ -63,9 +65,10 @@
   // preconditions: int passed must be valid ID
   int HashMap::hashify(int) const
   {
-      return;      
+      return 0;      
   }
   // ostream operator<<
-  ostream &operator<<(ostream &, const Customer &)
+  ostream &operator<<(ostream&output, const Customer&)
   {
+    return output;
   }

@@ -10,27 +10,31 @@
  **/
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
+
 #include "BSTree.h"
-#include "HashMap.h"
 #include "Transaction.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
+class Transaction;
 class Customer {
-  // friend class Hashmap;
-  friend ostream &operator<<(ostream &, const BSTree &);
+//friend ostream &operator<<(ostream &output, const BSTree& bst);
 
 public:
+  vector<Transaction *> history_;
+
   // default constructor
   Customer();
   // destructor
   virtual ~Customer();
-
-  // adding the transaction to customer's history
-  void setData(int, string, string);
-  // returns customer ID
+  //add to history
+  void addHistory(Transaction* transaction);
+  //method to set all fields for the customer's account
+  bool setData(int customerID, istream &infile);
+  // returns customer ID - used to find a customer in the hash table
   int getCustomerID();
   // returns customer firstName
   string getFirstName();
@@ -38,15 +42,11 @@ public:
   string getLastName();
 
 private:
-  int customerID;
-  string firstName;
-  string lastName;
+  int customerID_ = 0;
+  string firstName_;
+  string lastName_;
   // vector where we store the transactions objects
-  vector<Transaction *> history;
-
-  bool setCustomerID(int);
-  bool setFirstName(string);
-  bool setLastName(string);
+  //vector<Transaction *> history_;
 };
 
 #endif // CUSTOMER_H

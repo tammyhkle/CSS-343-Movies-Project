@@ -12,19 +12,20 @@
 using namespace std;
 
 class DisplayInventory : public Transaction {
-
+//friend class transaction; //forward declaration of transaction
 public:
   // default constructor
   DisplayInventory();
   // destructor
   virtual ~DisplayInventory();
-
+  //get customer ID
+  virtual int getCustomerID();
   // virtual create method
   virtual Transaction *create() const;
   // virtual set data method
-  virtual bool setData(istream &);
-  // displays the catalogue
-  virtual void doTransaction(Storage &, HashMap &);
+  virtual bool setData(istream& );
+  // displays the storage(inventory)
+  virtual void doTransaction(Storage& , HashMap& );
 };
 
 #endif // DISPLAYINVENTORY_H

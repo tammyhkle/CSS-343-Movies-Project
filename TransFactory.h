@@ -7,36 +7,37 @@
 #ifndef TRANSFACTORY_H
 #define TRANSFACTORY_H
 
+#include "Transaction.h"
+#include "ItemFactory.h"
+#include "Item.h"
 #include "Borrow.h"
+#include "Return.h"
 #include "DisplayInventory.h"
 #include "History.h"
-#include "Item.h"
-#include "ItemFactory.h"
-#include "Return.h"
-#include "Transaction.h"
+
 #include <unordered_map>
 #include <vector>
 using namespace std;
-
+ 
+//forward declaration
 class TransFactory {
-
 public:
   // default constructor
   TransFactory();
   // virtual destrcutor
   virtual ~TransFactory();
   // create Treansaction method
-  Transaction *createTransaction(char transType, char genre) const;
+  Transaction *createTransaction(char transType) const;
 
 private:
   /* HashMap with keys equal to char variables of every possible movie type
    * and values equal to integers ranging
    * from 0 to the number of transaction types - 1.
    */
-  unordered_map<char, int> transMap;
+  unordered_map<char, int> transMap_;
   // Vector with elements that are initialized as new Transaction objects of
   // every possible transaction type
-  vector<Transaction *> transFac;
+  vector<Transaction *> transFac_;
 };
 
 #endif // TRANSFACTORY_H
