@@ -7,19 +7,19 @@
 #ifndef TRANSFACTORY_H
 #define TRANSFACTORY_H
 
-#include "Transaction.h"
-#include "ItemFactory.h"
-#include "Item.h"
 #include "Borrow.h"
-#include "Return.h"
 #include "DisplayInventory.h"
 #include "History.h"
+#include "Item.h"
+#include "ItemFactory.h"
+#include "Return.h"
+#include "Transaction.h"
 
 #include <unordered_map>
 #include <vector>
 using namespace std;
- 
-//forward declaration
+
+// forward declaration
 class TransFactory {
 public:
   // default constructor

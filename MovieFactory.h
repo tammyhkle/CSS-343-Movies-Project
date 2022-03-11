@@ -11,12 +11,12 @@
 #ifndef MOVIEFACTORY_H
 #define MOVIEFACTORY_H
 
-#include "ItemFactory.h"
-#include "Item.h"
-#include "Movie.h"
-#include "Drama.h"
 #include "Classics.h"
 #include "Comedy.h"
+#include "Drama.h"
+#include "Item.h"
+#include "ItemFactory.h"
+#include "Movie.h"
 /*
 #include "Classics.h"
 #include "Comedy.h"

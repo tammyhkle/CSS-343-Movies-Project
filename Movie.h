@@ -48,7 +48,7 @@ public:
   virtual bool operator<(Item &) const = 0;
   virtual bool operator>(Item &) const = 0;
 
-  //print
+  // print
   void print(ostream &output) const;
 
 protected:

@@ -10,24 +10,16 @@
 #include "Classics.h"
 
 // default constructor
-Classics::Classics() { 
-  director_ = ""; 
-}
+Classics::Classics() { director_ = ""; }
 // destructor
 Classics::~Classics() {}
 // return item type
-char Classics::getItemType() const 
-{ 
-  return itemType_; 
-}
+char Classics::getItemType() const { return itemType_; }
 // return item type genre
-char Classics::getGenre() const 
-{ 
-  return genre_; 
-}
+char Classics::getGenre() const { return genre_; }
 // create() function can be used after the types of Movie
 Item *Classics::create() const {
-  cerr << "Create new classics" << endl;
+  // cerr << "Create new classics" << endl;
   return new Classics;
 }
 
@@ -52,9 +44,9 @@ bool Classics::operator==(Item &item) const {
 }
 
 // virtual comparison operator!= CLASSICS
-bool Classics::operator!=(Item &item) const { 
+bool Classics::operator!=(Item &item) const {
   Classics &ptr = static_cast<Classics &>(item);
-  return !this->operator==(ptr); 
+  return !this->operator==(ptr);
 }
 
 // virtual comparison operator< (slighly different than drama and comedy)
@@ -62,84 +54,71 @@ bool Classics::operator!=(Item &item) const {
 bool Classics::operator<(Item &item) const {
   Classics &ptr = static_cast<Classics &>(item);
   // sorted by Release Date, then by Major Actor
-  if (yearReleased_ < ptr.yearReleased_) 
-  {
+  if (yearReleased_ < ptr.yearReleased_) {
     return true;
-  } 
-  else if (yearReleased_ == ptr.yearReleased_ && monthReleased_ == ptr.monthReleased_) 
-    {
-      if (lastName_ < ptr.lastName_)
-      {
-        return true;
-      }
+  } else if (yearReleased_ == ptr.yearReleased_ &&
+             monthReleased_ == ptr.monthReleased_) {
+    if (lastName_ < ptr.lastName_) {
+      return true;
     }
-  else if ( yearReleased_ == ptr.yearReleased_)
-  {
+  } else if (yearReleased_ == ptr.yearReleased_) {
     return monthReleased_ < ptr.monthReleased_;
-  }
-  else 
-  {
+  } else {
     return false;
   }
 }
 
 // virtual comparison operator> CLASSICS
 bool Classics::operator>(Item &item) const {
-    Classics &ptr = static_cast<Classics &>(item);
-    //return !(*this < ptr);
-    if (yearReleased_ > ptr.yearReleased_) 
-  {
+  Classics &ptr = static_cast<Classics &>(item);
+  // return !(*this < ptr);
+  if (yearReleased_ > ptr.yearReleased_) {
     return true;
-  } 
-  else if (yearReleased_ == ptr.yearReleased_ && monthReleased_ == ptr.monthReleased_) 
-    {
-      return majorActor_ > ptr.majorActor_;
-    }
-  else if ( yearReleased_ == ptr.yearReleased_)
-  {
+  } else if (yearReleased_ == ptr.yearReleased_ &&
+             monthReleased_ == ptr.monthReleased_) {
+    return majorActor_ > ptr.majorActor_;
+  } else if (yearReleased_ == ptr.yearReleased_) {
     return monthReleased_ > ptr.monthReleased_;
-  }
-  else 
-  {
+  } else {
     return false;
   }
 }
 
 // set Item
 void Classics::setItem(istream &infile) {
-  cerr << "Starting Classics setItem" << endl;
+  // cerr << "Starting Classics setItem" << endl;
 
   // stock
   string stock;
   getline(infile, stock, ',');
-  cerr << "Stock: " << stock << endl;
+  // cerr << "Stock: " << stock << endl;
 
   // Insert the director
   infile.get();
   getline(infile, director_, ',');
-  cerr << "director: " << director_ << endl;
+  // cerr << "director: " << director_ << endl;
 
   // Grab the title of movie
   infile.get();
   getline(infile, title_, ',');
-  cerr << "title: " << title_ << endl;
+  // cerr << "title: " << title_ << endl;
 
   // Major actor
   infile >> firstName_;
   infile >> lastName_;
   majorActor_ = firstName_ + " " + lastName_;
-  cerr << "majorActor: " << majorActor_ << endl;
+  // cerr << "majorActor: " << majorActor_ << endl;
 
   // insert the monthReleased
   infile >> monthReleased_;
-  cerr << "monthReleased: " << monthReleased_ << endl;
+  // cerr << "monthReleased: " << monthReleased_ << endl;
 
   // get (and ignore) blank before year
   infile.get();
 
   // insert the yearReleased
   infile >> yearReleased_;
-  cerr << "yearReleased: " << yearReleased_ << endl;
+  // cerr << "yearReleased: " << yearReleased_ << endl;
 
   // set defaults for rest of properties
   // set the itemType into the Item class - D for DVD
@@ -153,7 +132,7 @@ void Classics::setItem(istream &infile) {
 
   infile.get();
 
-  cerr << "Finished Classics setItem" << endl;
+  // cerr << "Finished Classics setItem" << endl;
 }
 // oop, setting partial (unique to only classics)
 void Classics::setPartialItem(istream &inFile, char itemType, char genre) {
@@ -167,7 +146,7 @@ void Classics::setPartialItem(istream &inFile, char itemType, char genre) {
   inFile >> lastName_;
   majorActor_ = firstName_ + " " + lastName_;
 
-  //defaults
+  // defaults
   director_ = "Default";
   title_ = "Default Title";
   currCopies_ = 0;

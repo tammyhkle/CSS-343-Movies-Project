@@ -23,7 +23,7 @@ int History::getCustomerID()
 bool History::setData(istream& inFile)
 {
     inFile >> customerID_;
-    cerr << "Customer ID: " << customerID_ << endl;
+    //cerr << "Customer ID: " << customerID_ << endl;
     return true;
 }
 // create method to create and return a new History object pointer
@@ -35,9 +35,9 @@ Transaction* History::create() const
 void History::doTransaction(Storage& , HashMap& customerMap)
 {
     //print history of the customer w/ customerID
-    cerr << "Start of doTransaction for History " << endl;
-    for (auto t : customerMap.getCustomer(customerID_)->history_){
-        cerr << t;
-    }
+    // cerr << "Start of doTransaction for History " << endl;
+    //for (auto t : customerMap.getCustomer(customerID_)->history_){
+        //cerr << t;
+    //}
     return;
 }
