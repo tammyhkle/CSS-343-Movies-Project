@@ -24,8 +24,6 @@ class Customer {
 //friend ostream &operator<<(ostream &output, const BSTree& bst);
 
 public:
-  vector<Transaction *> history_;
-
   // default constructor
   Customer();
   // destructor
@@ -46,7 +44,7 @@ private:
   string firstName_;
   string lastName_;
   // vector where we store the transactions objects
-  //vector<Transaction *> history_;
+  vector<Transaction *> history_;
 };
 
 #endif // CUSTOMER_H

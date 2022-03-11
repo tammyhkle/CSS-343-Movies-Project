@@ -26,7 +26,7 @@ History: Full
 Borrow: Full
 Return: Full
 
-Q: -1 for each compilation warning, min -3: 0
+Q: -1 for each compilation warning, min -3: -3
 
 - Check under *1. Compiles without warnings*
 - If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions
@@ -61,39 +61,39 @@ Yes, every .h and .cpp are documented.
 
 State the file and function where the information can be found
 
-invalid command code: RentalManager.cpp / Function: void RentalManager::readCommands(istream& inFile)
+invalid command code: RentalManager.cpp /RentalManager - readCommands
 
-invalid movie type: 
+invalid movie type: Storage.cpp/ retrieve 
 
-invalid customer ID:
+invalid customer ID: Customer.cpp / customer - set data
  
-invalid movie: 
+invalid movie: Storage.cpp / retrieve
 
 factory classes: TransFactory, MovieFactory, ItemFactory
 
-hashtable: (explain what the hashtable is used for)
+hashtable: (explain what the hashtable is used for) RentalManager.cpp / Used for customer's information and organizing the Movie BSTrees by genre
 
-container used for comedy movies: 
+container used for comedy movies: Storage.cpp
 
-function for sorting comedy movies: 
+function for sorting comedy movies: BSTree.pp / bool insert(Item *)
 
-function where comedy movies are sorted: 
+function where comedy movies are sorted: BSTree.pp / bool insert(Item *)
 
-functions called when retrieving a comedy movie based on title and year: 
+functions called when retrieving a comedy movie based on title and year: Storage.cpp / bool retrieveItem(Item* item, Item*& retriever)
 
-functions called for retrieving and printing customer history:
+functions called for retrieving and printing customer history: History.cpp / void History::doTransaction(Storage& , HashMap& customerMap)
 
-container used for customer history: 
+container used for customer history: Customer.h / vector<Transaction> history_
 
-functions called when borrowing a movie: 
+functions called when borrowing a movie: Borrow.setData() / Storage.retrieve() / BSTree.retrieve() / comparison operators / Movie.borrow() / Customer.addHistory()
 
-explain borrowing a movie that does not exist: 
+explain borrowing a movie that does not exist: Will try to look up the movie and not find in the Movie genre BSTree so will say movie not found and not complete the transaction.
 
-explain borrowing a movie that has 0 stock: 
+explain borrowing a movie that has 0 stock: Will get the movie from BSTree, check the available stock, and state that it is out of stock and not complete the transaction.
 
-explain returning a movie that customer has not checked out: 
+explain returning a movie that customer has not checked out: Will check customer history for a return transaction and will say not valid request if the movie is not valid to return if doesn't have a borrow.
 
-any static_cast or dynamic_cast used: 
+any static_cast or dynamic_cast used: Used in children classes of Item and Movie in comparison operators
 
 
-Q: Total points: 25 (max 25)
+Q: Total points: 22 (max 25)
