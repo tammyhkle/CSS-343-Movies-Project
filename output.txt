@@ -281,7 +281,6 @@ Movie Inventory:
  F 10 Nora Ephron You've Got Mail 1998 
 
 
-
 Start testStore1
 End testStore1
 Start testStore2
