@@ -26,18 +26,14 @@ History: Full
 Borrow: Full
 Return: Full
 
-<<<<<<< HEAD
 Q: -1 for each compilation warning, min -3: 0
 Refer to read me on compilation warnings.
-=======
-Q: -1 for each compilation warning, min -3: -3
->>>>>>> 0c2b65d467b5a7bc6b68fedf9558182810c2113f
 
 - Check under *1. Compiles without warnings*
 - If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions
 
 Q: -1 for each clang-tidy warning, min -3: -1
-Refer to read me on compilation warnings.
+Refer to read me on clang-tidy warnings.
 
 - Check under *3. clang-tidy warnings*
 - If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions
