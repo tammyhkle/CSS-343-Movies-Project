@@ -11,75 +11,75 @@
 #include <iomanip>
 
 // default constructor
-Comedy::Comedy() { director_ = ""; }
+Comedy::Comedy() { director = ""; }
 // destructor
 Comedy::~Comedy() {}
 // return item type
-char Comedy::getItemType() const { return itemType_; }
+char Comedy::getItemType() const { return itemType; }
 // return item type genre
-char Comedy::getGenre() const { return genre_; }
+char Comedy::getGenre() const { return genre; }
 // create() function can be used after the types of Movie
 Item *Comedy::create() const { return new Comedy; }
 
 // assignment operator
 Item &Comedy::operator=(Item &item) {
-  Comedy &movieComedy = static_cast<Comedy &>(item);
-  this->currCopies_ = movieComedy.currCopies_;     // stock
-  this->director_ = movieComedy.director_;         // director
-  this->title_ = movieComedy.title_;               // title
-  this->yearReleased_ = movieComedy.yearReleased_; // year it released
+  Comedy &movieComedy = dynamic_cast<Comedy &>(item);
+  this->currCopies = movieComedy.currCopies;     // stock
+  this->director = movieComedy.director;         // director
+  this->title = movieComedy.title;               // title
+  this->yearReleased = movieComedy.yearReleased; // year it released
   return *this;
 }
 
 // virtual comparison operator== COMEDY
 bool Comedy::operator==(Item &item) const // add const in parameters
 {
-  Comedy &ptr = static_cast<Comedy &>(item); // add const in front of comedy
+  Comedy &ptr = dynamic_cast<Comedy &>(item); // add const in front of comedy
   // cerr << "Start: Comedy check log for title/ director EQUALS == operator "
   // << endl;
-  return (this->title_ == ptr.title_ &&
-          this->yearReleased_ == ptr.yearReleased_);
+  return (this->title == ptr.title &&
+          this->yearReleased == ptr.yearReleased);
 }
 // virtual comparison operator!= COMEDY
 bool Comedy::operator!=(Item &item) const {
-  Comedy &ptr = static_cast<Comedy &>(item);
+  Comedy &ptr = dynamic_cast<Comedy &>(item);
   return !this->operator==(ptr);
 }
 //  comparison operator< COMEDY
 bool Comedy::operator<(Item &item) const {
-  Comedy &ptr = static_cast<Comedy &>(item);
+  Comedy &ptr = dynamic_cast<Comedy &>(item);
   // sorted by Title of movie, then directors name
   // cerr << "Start: Comedy check log for title/ director LESS THAN operator "
   // << endl;
-  if (title_ < ptr.title_) {
-    // cerr << "Title is < item.title (is less than): " << title_ << " < " <<
-    // ptr.title_ << endl;
+  if (title < ptr.title) {
+    // cerr << "Title is < item.title (is less than): " << title << " < " <<
+    // ptr.title << endl;
     return true;
-  } else if (title_ == ptr.title_) {
-    // cerr << "Title is == item.title: " << title_ << " == " << ptr.title_ <<
+  } else if (title == ptr.title) {
+    // cerr << "Title is == item.title: " << title << " == " << ptr.title <<
     // endl;
-    return yearReleased_ < ptr.yearReleased_;
+    return yearReleased < ptr.yearReleased;
   }
-  // cerr << "Director_ < item.director_ (is less than): " << director_ << " < "
-  // << ptr.director_ << endl;
+  // cerr << "Director < item.director (is less than): " << director << " < "
+  // << ptr.director << endl;
   return false;
 }
 // comparison operator> COMEDY
 bool Comedy::operator>(Item &item) const {
-  Comedy &ptr = static_cast<Comedy &>(item);
+  Comedy &ptr = dynamic_cast<Comedy &>(item);
   // cerr << "Start: Comedy check log for title/ director GREATER THAN operator
   // " << endl;
   // return !(*this < ptr);
-  // const Comedy& aComedy = static_cast<const Comedy&>(item);
+  // const Comedy& aComedy = dynamic_cast<const Comedy&>(item);
 
   if (this->operator==(item) || this->operator<(item)) {
     return false;
   }
 
-  if (this->title_ > ptr.title_) {
+  if (this->title > ptr.title) {
     return true;
-  } else if (this->title_ == ptr.title_) {
-    return this->yearReleased_ > ptr.yearReleased_;
+  } else if (this->title == ptr.title) {
+    return this->yearReleased > ptr.yearReleased;
   }
   return false;
 }
@@ -94,27 +94,27 @@ void Comedy::setItem(istream &infile) {
 
   // Insert the director
   infile.get(); // grab empty space and delete
-  getline(infile, director_, ',');
-  // cerr << "Director: " << director_ << endl;
+  getline(infile, director, ',');
+  // cerr << "Director: " << director << endl;
 
   // Grab the title of movie
   infile.get(); // grab empty space and delete
-  getline(infile, title_, ',');
-  // cerr << "Comedy's title: " << title_ << endl;
+  getline(infile, title, ',');
+  // cerr << "Comedy's title: " << title << endl;
 
   // insert the yearReleased
-  infile >> yearReleased_;
-  // cerr << "yearReleased: " << yearReleased_ << endl;
+  infile >> yearReleased;
+  // cerr << "yearReleased: " << yearReleased << endl;
 
   // set defaults for rest of properties
   // set the itemType into the Item class - D for DVD
-  itemType_ = 'D';
+  itemType = 'D';
   // set stock/ current copies of movie
-  currCopies_ = 10;
-  // set the genre_ to "F" (Funny) for Comedy into the Movie class
-  genre_ = 'F';
+  currCopies = 10;
+  // set the genre to "F" (Funny) for Comedy into the Movie class
+  genre = 'F';
   // set max number of copies
-  maxCopies_ = 26;
+  maxCopies = 26;
 
   infile.get();
 
@@ -122,22 +122,20 @@ void Comedy::setItem(istream &infile) {
 }
 // oop, setting partial (unique to only comedy)
 void Comedy::setPartialItem(istream &inFile, char itemType, char genre) {
-  itemType_ = itemType;
-  genre_ = genre;
+  itemType = itemType;
+  genre = genre;
   // Pirates of the Caribbean, 2003
   inFile.get();
-  getline(inFile, title_, ',');
-  inFile >> yearReleased_;
+  getline(inFile, title, ',');
+  inFile >> yearReleased;
 
   // defaults
-  director_ = "Default";
-  currCopies_ = 0;
-  maxCopies_ = 0;
+  director = "Default";
+  currCopies = 0;
+  maxCopies = 0;
 }
 // print Comedy
 void Comedy::print(ostream &output) const {
-  // output format for Comedy: F (genre_), stock (currCopies_), director_,
-  // title_, yearReleased_
-  output << genre_ << " " << currCopies_ << " " << director_ << " " << title_
-         << " " << yearReleased_ << " " << endl;
+  output << genre << " " << currCopies << " " << director << " " << title
+         << " " << yearReleased << " " << endl;
 }

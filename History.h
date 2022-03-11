@@ -27,7 +27,7 @@ public:
                                                      // ID equal to value of
                                                      // data member custID
 private:
-  int customerID_; // the Customer whose history will be displayed
+  int customerID; // the Customer whose history will be displayed
 };
 
 #endif // HISTORY_H

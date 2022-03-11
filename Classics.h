@@ -45,12 +45,12 @@ public:
   void print(ostream &output) const override;
 
 private:
-  string director_;
-  string majorActor_;
-  string firstName_;
-  string lastName_;
-  int yearReleased_;
-  int monthReleased_;
+  string director;
+  string majorActor;
+  string firstName;
+  string lastName;
+  int yearReleased;
+  int monthReleased;
 };
 
 #endif // CLASSICS_H

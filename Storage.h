@@ -20,8 +20,6 @@ class Storage {
   friend ostream &operator<<(ostream &output, const Storage &storage);
 
 public:
-  unordered_map<string, BSTree *> bstMap_;
-
   // default constructor
   Storage();
   // destructor
@@ -45,7 +43,7 @@ private:
   indicates the subtype of the items in the BSTree objects
   that all have the same Item type and subtype
   */
-  // unordered_map<string, BSTree*> bstMap_;
+  unordered_map<string, BSTree*> bstMap;
 };
 
 #endif // STORAGE_H

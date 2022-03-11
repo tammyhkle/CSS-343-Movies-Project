@@ -37,14 +37,14 @@ public:
   void readCommands(istream &inFile);
 
 private:
-  MovieFactory movieFac_;
-  TransFactory transFac_;
+  MovieFactory movieFac;
+  TransFactory transFac;
   // hashmap of customer's account - call object method that process customer
   // data
-  HashMap customersMap_;
+  HashMap customersMap;
   // this contains map of BSTree objects that each contain Items of specific
   // type
-  Storage catalogueMap_;
+  Storage catalogueMap;
 };
 
 #endif // RENTALMANAGER_H

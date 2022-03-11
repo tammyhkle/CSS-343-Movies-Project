@@ -59,7 +59,7 @@ public:
   void print(ostream &output) const override;
 
 private:
-  string director_;
+  string director;
 };
 
 #endif // COMEDY_H

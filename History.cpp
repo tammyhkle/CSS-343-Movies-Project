@@ -9,7 +9,7 @@
 // constructor for class History
 History::History() 
 {
-    customerID_ = 0;
+    customerID = 0;
 }
 // destrcutor for History
 History::~History() 
@@ -17,12 +17,12 @@ History::~History()
 //get customer ID
 int History::getCustomerID()
 {
-    return customerID_;
+    return customerID;
 }
 // setData() method
 bool History::setData(istream& inFile)
 {
-    inFile >> customerID_;
+    inFile >> customerID;
     //cerr << "Customer ID: " << customerID_ << endl;
     return true;
 }
@@ -32,7 +32,7 @@ Transaction* History::create() const
     return new History;
 }
 // displays transaction history of customer with ID equal to value of data member custID
-void History::doTransaction(Storage& , HashMap& customerMap)
+void History::doTransaction(Storage& , HashMap& )
 {
     //print history of the customer w/ customerID
     // cerr << "Start of doTransaction for History " << endl;

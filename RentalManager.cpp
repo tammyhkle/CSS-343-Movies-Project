@@ -35,7 +35,7 @@ void RentalManager::readInventory(istream &inFile) {
 
     itemType = 'D'; // D for DVD
 
-    item = this->movieFac_.create(genre);
+    item = this->movieFac.create(genre);
 
     // cerr << "Created new movie" << endl;
 
@@ -48,15 +48,15 @@ void RentalManager::readInventory(istream &inFile) {
     inFile.get();
     item->setItem(inFile);
     // cerr << "Adding item into catalouge bst" << endl;
-    catalogueMap_.insertItem(item);
+    catalogueMap.insertItem(item);
     // cerr << "Finished adding item into catalouge bst" << endl;
 
     if (inFile.eof()) {
       break;
     }
   }
-  cout << catalogueMap_ << endl;
-  // cerr << catalogueMap_ << "CatalouageMap" << endl;
+  cout << catalogueMap << endl;
+  // cerr << catalogueMap << "CatalouageMap" << endl;
 }
 // read in cutomer and build customer profile
 void RentalManager::readCustomer(istream &inFile) {
@@ -71,7 +71,7 @@ void RentalManager::readCustomer(istream &inFile) {
     inFile >> customerID;
     // cerr << "rentalmanager - Customer ID: " << customerID << endl;
     inFile.get();
-    customersMap_.addCustomer(customerID, inFile);
+    customersMap.addCustomer(customerID, inFile);
     // cerr << "Done" << endl;
     // cerr << endl;
     inFile.get();
@@ -79,8 +79,8 @@ void RentalManager::readCustomer(istream &inFile) {
       break;
     }
   }
-  cout << catalogueMap_ << endl;
-  // cerr << "catalogueMap" << catalogueMap_ << endl;
+  cout << catalogueMap << endl;
+  // cerr << "catalogueMap" << catalogueMap << endl;
 }
 // reads in commands data and performs the command
 void RentalManager::readCommands(istream &inFile) {
@@ -100,7 +100,7 @@ void RentalManager::readCommands(istream &inFile) {
 
     // transaction factory
     // cerr << "transFac create " << endl;
-    command = this->transFac_.createTransaction(commandType);
+    command = this->transFac.createTransaction(commandType);
     // cerr << "Finish transFac create " << endl;
     // validate command
     if (command == nullptr) {
@@ -110,18 +110,18 @@ void RentalManager::readCommands(istream &inFile) {
     }
     // if else statements on the commandTypes
     if (commandType == 'I') {
-      command->doTransaction(catalogueMap_, customersMap_);
+      command->doTransaction(catalogueMap, customersMap);
     } else if (commandType == 'H') {
       // cerr << "Start of setData for History " << endl;
       command->setData(inFile);
       // cerr << "setData for History " << endl;
       // cerr << "Start of doTransaction for History " << endl;
-      command->doTransaction(catalogueMap_, customersMap_);
+      command->doTransaction(catalogueMap, customersMap);
       // cerr << "Finished doTransaction for History " << endl;
     } else if (commandType == 'B' || commandType == 'R') {
       if (command->setData(inFile)) {
         // cerr << "Starting doTransaction " << endl;
-        command->doTransaction(catalogueMap_, customersMap_);
+        command->doTransaction(catalogueMap, customersMap);
         // cerr << "Finish doTransaction " << endl;
       }
     } else {

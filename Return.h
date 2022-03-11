@@ -34,10 +34,10 @@ public:
 
 private:
   // the movie that is being returned
-  Item *theItem_;
+  Item *theItem;
   // the customer that returns the movie
-  int customerID_;
+  int customerID;
   // factory to create Item objects
-  MovieFactory movieFac_;
+  MovieFactory movieFac;
 };
 #endif // RETURN_H

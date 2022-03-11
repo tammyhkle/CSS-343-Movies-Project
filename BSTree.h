@@ -47,9 +47,9 @@ public:
 
 private:
   struct Node {
-    Item *itemPtr_;
-    Node *left_;
-    Node *right_;
+    Item *itemPtr;
+    Node *left;
+    Node *right;
   };
   Node *root;
   // retrieve helper function - recursive

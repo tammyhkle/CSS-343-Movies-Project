@@ -15,6 +15,9 @@
 #include <string>
 using namespace std;
 
+//global const - for customer array
+int const BUCKETS = 100;
+
 class Customer;
 class HashMap {
 public:
@@ -40,7 +43,7 @@ public:
 
 private:
   // array which stores customers
-  Customer *customerArray[];
+  Customer *customerArray[BUCKETS];
 };
 
 #endif // HASHMAP_H

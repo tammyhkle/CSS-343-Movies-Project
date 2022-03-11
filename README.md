@@ -19,3 +19,15 @@ History (denoted as ‘H’): outputs all the transactions of a customer
 You will design and implement a program that will initialize the contents of the inventory from a file (data4movies.txt), the customer list from another file (data4customers.txt), 
 and then process an arbitrary sequence of commands from a third file (data4commands.txt).
 
+---
+
+If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions:
+
+Compilation warnings:
+initialize privtates in constructor - I ignore the warning because I do need the privates and did implement them as well.
+
+- If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions
+
+A lot of the clang-tidy warnings repeats itself on the virtual and overrides, however, it is necessary for my program for the polymorphism on item, movie, and children classes.
+
+Also there are a lot of clang-tidy warnings repeats on having a default next to the constructor, I also ignored this. 

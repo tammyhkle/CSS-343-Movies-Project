@@ -19,31 +19,31 @@ Customer::~Customer() {}
 
 // add to history
 void Customer::addHistory(Transaction *transaction) {
-  history_.push_back(transaction);
+  history.push_back(transaction);
 }
 
 // returns customer ID
-int Customer::getCustomerID() { return customerID_; }
+int Customer::getCustomerID() { return customerID; }
 // returns customer firstName
-string Customer::getFirstName() { return firstName_; }
+string Customer::getFirstName() { return firstName; }
 // returns customer lastName
-string Customer::getLastName() { return lastName_; }
+string Customer::getLastName() { return lastName; }
 // method to set all fields for the customer's account
 bool Customer::setData(int customerID, istream &infile) {
-  customerID_ = customerID;
-  if (customerID_ >= 0) {
-    infile >> lastName_;
-    infile >> firstName_;
+  customerID = customerID;
+  if (customerID >= 0) {
+    infile >> lastName;
+    infile >> firstName;
     infile.get();
 
     // cerr << "Done setting customer's account " << endl;
-    // cerr << "customerID: " << customerID_ << endl;
-    // cerr << "firstName: " << firstName_ << endl;
-    // cerr << "lastName: " << lastName_ << endl;
+    // cerr << "customerID: " << customerID << endl;
+    // cerr << "firstName: " << firstName << endl;
+    // cerr << "lastName: " << lastName << endl;
 
     return true;
   } else {
-    cerr << "ERROR: " << customerID_ << " is not a valid customer ID." << endl;
+    cerr << "ERROR: " << customerID << " is not a valid customer ID." << endl;
     return false; // customer not valid
   }
 }

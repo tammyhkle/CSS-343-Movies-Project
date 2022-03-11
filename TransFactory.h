@@ -34,10 +34,10 @@ private:
    * and values equal to integers ranging
    * from 0 to the number of transaction types - 1.
    */
-  unordered_map<char, int> transMap_;
+  unordered_map<char, int> transMap;
   // Vector with elements that are initialized as new Transaction objects of
   // every possible transaction type
-  vector<Transaction *> transFac_;
+  vector<Transaction *> transFac;
 };
 
 #endif // TRANSFACTORY_H

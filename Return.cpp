@@ -8,30 +8,30 @@
 
 // default constructor
 Return::Return() {
-  theItem_ = nullptr;
-  customerID_ = 0;
+  theItem = nullptr;
+  customerID = 0;
 }
 // destructor
 Return::~Return() {}
 // get customer ID
-int Return::getCustomerID() { return customerID_; }
+int Return::getCustomerID() { return customerID; }
 // sets data for item and customer involved in the return transaction
 bool Return::setData(istream &inFile) {
   char itemType;
   char genre;
 
-  inFile >> customerID_;
+  inFile >> customerID;
   inFile >> itemType;
   inFile >> genre;
 
-  theItem_ = this->movieFac_.create(genre);
+  theItem = this->movieFac.create(genre);
   // checking genre
-  if (theItem_ == nullptr) {
+  if (theItem == nullptr) {
     //cerr << "Wrong Item Type " << endl;
     return false;
   }
   // setting data
-  theItem_->setPartialItem(inFile, itemType, genre);
+  theItem->setPartialItem(inFile, itemType, genre);
   return true;
 }
 // creates and returns new Return object
@@ -41,14 +41,12 @@ Transaction *Return::create() const { return new Return; }
 void Return::doTransaction(Storage &storageMap, HashMap &customersMap) {
   Item *temp = nullptr;
   // Storage tempStorage = storageMap;
-  if (!storageMap.retrieveItem(theItem_, temp)) {
+  if (!storageMap.retrieveItem(theItem, temp)) {
     //cerr << "Cannot find item" << endl;
     return;
   } else {
-    //cerr << "Item found with this Key Temp: " << temp->getItemType()
-         << temp->getGenre() << endl;
     Customer *tempCustomer;
-    tempCustomer = customersMap.getCustomer(customerID_);
+    tempCustomer = customersMap.getCustomer(customerID);
     tempCustomer->addHistory(this);
     //cerr << "Added to history " << endl;
 

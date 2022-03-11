@@ -16,18 +16,18 @@ ostream &operator<<(ostream &output, const Item &item) {
 }
 // default constructor - initialize privtates/protecteds
 Item::Item() {
-  int maxCopies_ = 26;   // max number of copies of item
-  int currCopies_ = ' '; // number of current copies of item
-  char itemType_ = 'D';  // indicating the format (D - DVD)
-  char mediaType_ = 'M'; // m for movie
+  int maxCopies = 26;   // max number of copies of item
+  int currCopies = ' '; // number of current copies of item
+  char itemType = 'D';  // indicating the format (D - DVD)
+  char mediaType = 'M'; // m for movie
 }
 // destructor
 Item::~Item() {}
 // decrement -1 copies of private variables (for each item borrowed)
 // denoted as 'B'
 void Item::borrowItem() {
-  if (currCopies_ > 0) {
-    currCopies_--;
+  if (currCopies > 0) {
+    currCopies--;
     return;
   }
   cout << "Can't borrow, out of stock." << endl;
@@ -35,8 +35,8 @@ void Item::borrowItem() {
 // increment +1 copies of private variables (for each item returned)
 // denoted as 'R'
 void Item::returnItem() {
-  if (currCopies_ < maxCopies_) {
-    currCopies_++;
+  if (currCopies < maxCopies) {
+    currCopies++;
     return;
   }
   cout << "Can't return, no space." << endl;

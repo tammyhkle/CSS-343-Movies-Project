@@ -52,9 +52,9 @@ public:
   void print(ostream &output) const;
 
 protected:
-  string title_;
-  char genre_;
-  int yearReleased_;
+  string title;
+  char genre;
+  int yearReleased;
 };
 
 #endif // MOVIE_H

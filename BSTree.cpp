@@ -31,10 +31,10 @@ bool BSTree::isEmpty() const {
 // makeEmpty - recursive delete helper
 void BSTree::makeEmpty(Node *&ptr) {
   if (ptr != nullptr) {
-    makeEmpty(ptr->left_);
-    makeEmpty(ptr->right_);
-    delete ptr->itemPtr_;
-    ptr->itemPtr_ = nullptr;
+    makeEmpty(ptr->left);
+    makeEmpty(ptr->right);
+    delete ptr->itemPtr;
+    ptr->itemPtr = nullptr;
     delete ptr;
     ptr = nullptr;
   }
@@ -46,9 +46,9 @@ bool BSTree::insert(Item *insertPtr) {
   // verify if BSTree is empty or not
   if (isEmpty()) {
     root = new Node();
-    root->itemPtr_ = insertPtr;
-    root->left_ = nullptr;
-    root->right_ = nullptr;
+    root->itemPtr = insertPtr;
+    root->left = nullptr;
+    root->right = nullptr;
     // cerr << "Empty" << endl;
   } else {
     // cerr << "not empty: " << endl;
@@ -57,32 +57,32 @@ bool BSTree::insert(Item *insertPtr) {
     bool inserted = false;
     // determine whether to go into the left or right subtree
     while (!inserted) {
-      if (*(insertPtr) < *(current->itemPtr_)) {
+      if (*(insertPtr) < *(current->itemPtr)) {
         // left
-        if (current->left_ == nullptr) {
+        if (current->left == nullptr) {
           Node *temp = new Node();
-          temp->itemPtr_ = insertPtr;
-          temp->left_ = nullptr;
-          temp->right_ = nullptr;
-          current->left_ = temp;
+          temp->itemPtr = insertPtr;
+          temp->left = nullptr;
+          temp->right = nullptr;
+          current->left = temp;
           // cerr << "Inserted left: " << inserted << endl;
           inserted = true;
         } else {
-          current = current->left_;
+          current = current->left;
         }
       }
       // right
       else {
-        if (current->right_ == nullptr) {
+        if (current->right == nullptr) {
           Node *temp = new Node();
-          temp->itemPtr_ = insertPtr;
-          temp->left_ = nullptr;
-          temp->right_ = nullptr;
-          current->right_ = temp;
+          temp->itemPtr = insertPtr;
+          temp->left = nullptr;
+          temp->right = nullptr;
+          current->right = temp;
           // cerr << "Inserted right: " << inserted << endl;
           inserted = true;
         } else {
-          current = current->right_;
+          current = current->right;
         }
       }
     }
@@ -96,13 +96,13 @@ bool BSTree::find(Item *target) {
   while (!found) {
     if (current == nullptr) {
       break;
-    } else if (current->itemPtr_ == target) {
+    } else if (current->itemPtr == target) {
       found = true;
       break;
-    } else if (target > current->itemPtr_) {
-      current = current->right_;
-    } else if (target < current->itemPtr_) {
-      current = current->left_;
+    } else if (target > current->itemPtr) {
+      current = current->right;
+    } else if (target < current->itemPtr) {
+      current = current->left;
     }
   }
   return found;
@@ -110,15 +110,15 @@ bool BSTree::find(Item *target) {
 // retrieves an item (movie object) from the BSTree
 bool BSTree::retrieve(Item *target, Item *&retrieverItem) const {
   // cerr << "Start BST Retrieve " << endl;
-  target->print(// cerr);
+  // target->print(cerr);
   if (root == nullptr) {
     // cerr << "root is null" << endl;
     return false;
   }
   // if the root is the target, then return the root's itemPtr
-  if (root->itemPtr_ == target) {
-    retrieverItem = root->itemPtr_;
-    // cerr << "root is the target, return root's itemPtr " << root->itemPtr_ <<
+  if (root->itemPtr == target) {
+    retrieverItem = root->itemPtr;
+    // cerr << "root is the target, return root's itemPtr " << root->itemPtr <<
     // endl;
     return true;
   }
@@ -126,7 +126,7 @@ bool BSTree::retrieve(Item *target, Item *&retrieverItem) const {
   // cerr << "Calling Helper " << endl;
   Node *retrieverNode = retrieveHelper(root, target);
   if (retrieverNode != nullptr) {
-    retrieverItem = retrieverNode->itemPtr_;
+    retrieverItem = retrieverNode->itemPtr;
     return true;
   }
   cout << "Error: Could not find Item." << endl;
@@ -139,15 +139,15 @@ BSTree::Node *BSTree::retrieveHelper(Node *current, Item *target) const {
   if (current == nullptr) {
     // cerr << "Null Pointer" << endl;
     return current;
-  } else if (*current->itemPtr_ == *target) {
+  } else if (*current->itemPtr == *target) {
     // cerr << "Found";
     return current;
-  } else if (*current->itemPtr_ > *target) {
+  } else if (*current->itemPtr > *target) {
     // cerr << "Target is less" << endl;
-    return retrieveHelper(current->left_, target);
+    return retrieveHelper(current->left, target);
   } else {
     // cerr << "Target is greater" << endl;
-    return retrieveHelper(current->right_, target);
+    return retrieveHelper(current->right, target);
   }
 }
 
@@ -159,13 +159,13 @@ void BSTree::print(ostream &output) const {
   while (!done) {
     if (current != nullptr) {
       nodeStack.push(current);
-      current = current->left_;
+      current = current->left;
     } else {
       if (!nodeStack.empty()) {
         current = nodeStack.top();
-        output << " " << *current->itemPtr_ << endl;
+        output << " " << *current->itemPtr << endl;
         nodeStack.pop();
-        current = current->right_;
+        current = current->right;
       } else {
         done = true;
       }

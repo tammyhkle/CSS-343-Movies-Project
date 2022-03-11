@@ -42,10 +42,10 @@ public:
 private:
   // Hashmap with keys equal to char variables of every possible movie genre
   // and values equal to integers ranging from 0 to the number of move types -1
-  unordered_map<char, int> movieMap_;
+  unordered_map<char, int> movieMap;
   // vector with elements that are initialized as new movie objects of every
   // possible movie type
-  vector<Movie *> movieFac_;
+  vector<Movie *> movieFac;
 };
 
 #endif // MOVIEFACTORY_H

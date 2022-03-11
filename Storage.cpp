@@ -12,11 +12,11 @@ Storage::Storage() {}
 Storage::~Storage() { makeEmpty(); }
 // deleting value in BSTree
 void Storage::makeEmpty() {
-  for (auto i = bstMap_.begin(); i != bstMap_.end(); i++) {
+  for (auto i = bstMap.begin(); i != bstMap.end(); i++) {
     i->second->~BSTree();
     delete i->second;
   }
-  bstMap_.clear();
+  bstMap.clear();
 }
 // insert means add, changing to true/false (bool)
 bool Storage::insertItem(Item *item) {
@@ -33,14 +33,14 @@ bool Storage::insertItem(Item *item) {
     BSTree *bst = new BSTree();
     bst->insert(item);
     // cerr << "insert item " << endl;
-    bstMap_.insert(std::make_pair(key, bst));
+    bstMap.insert(std::make_pair(key, bst));
     // cerr << "insert pair: " << key << "," << bst << endl;
   } else {
     // cerr << "did retrieve key: " << key << endl;
-    bstMap_.at(key)->insert(item);
+    bstMap.at(key)->insert(item);
     // cerr << "Inserted item " << endl;
   }
-  Storage::print(// cerr);
+  //Storage::print(cerr);
   // cerr << "Returning True " << endl;
   return true;
 }
@@ -57,12 +57,10 @@ bool Storage::retrieveItem(Item *item, Item *&retriever) const {
   // cerr << "Size of bstMap: " << bstMap_.size() << endl;
   // cerr << endl;
   // printing out key to validate if it's checking
-  for (auto i = bstMap_.begin(); i != bstMap_.end(); i++) {
+  for (auto i = bstMap.begin(); i != bstMap.end(); i++) {
     // cerr << "Key: " << i->first << endl;
     if (i->first == key) {
       if (i->second->retrieve(item, retriever)) {
-        // cerr << "Retrieved item with key: " << retriever->getItemType()
-             << retriever->getGenre() << endl;
         return true;
       }
     }
@@ -70,17 +68,6 @@ bool Storage::retrieveItem(Item *item, Item *&retriever) const {
   // cerr << "Failed to find item" << endl;
   return false;
 
-  //   if (!(bstMap_.find(key) == bstMap_.end()))
-  //   {
-  //       // cerr << "did retrieve " << endl;
-  //       return bstMap_.at(key)->retrieve(item, retriever);
-  // }
-  //   else
-  //   {
-  //       // cerr << "retriever is null " << endl;
-  //       retriever = nullptr;
-  //       return false;
-  //   }
 }
 // finds BSTree object stored in the BSTree Map - contains Item objects
 bool Storage::retrieveBSTree(Item *item, BSTree *&retriever) const {
@@ -92,9 +79,9 @@ bool Storage::retrieveBSTree(Item *item, BSTree *&retriever) const {
   key.push_back(item->getGenre());
   // cerr << "Key: " << key << endl;
 
-  if (!(bstMap_.find(key) == bstMap_.end())) {
+  if (!(bstMap.find(key) == bstMap.end())) {
     // cerr << "did retrieve" << endl;
-    retriever = (bstMap_.at(key));
+    retriever = (bstMap.at(key));
     return true;
   } else {
     // cerr << "did not retrieve" << endl;
@@ -104,7 +91,7 @@ bool Storage::retrieveBSTree(Item *item, BSTree *&retriever) const {
 }
 // prints the data of Item objects from BSTree
 void Storage::print(ostream &out) const {
-  for (auto i = bstMap_.begin(); i != bstMap_.end(); i++) {
+  for (auto i = bstMap.begin(); i != bstMap.end(); i++) {
     // cerr << i->first;
     out << *i->second;
   }

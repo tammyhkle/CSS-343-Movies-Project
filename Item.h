@@ -57,10 +57,10 @@ public:
 
   // gives children class access
 protected:
-  int maxCopies_;
-  int currCopies_;
-  char itemType_;  // M for Movie
-  char mediaType_; // D for DVD
+  int maxCopies;
+  int currCopies;
+  char itemType;  // M for Movie
+  char mediaType; // D for DVD
 };
 
 #endif // ITEM_H
