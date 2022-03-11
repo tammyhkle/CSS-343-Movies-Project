@@ -51,9 +51,9 @@ private:
     Node *left_;
     Node *right_;
   };
-  Node* root;
+  Node *root;
   // retrieve helper function - recursive
-  Node* retrieveHelper(Node *, Item *) const;
+  Node *retrieveHelper(Node *, Item *) const;
 };
 
 #endif // BSTREE_H

@@ -15,39 +15,32 @@
 #include "Movie.h"
 
 // default constructor - need to declare elements in hashmap and in movieFactory
-MovieFactory::MovieFactory() 
-{
-    // pushback
-    movieFac_.push_back(new Comedy);
-    movieFac_.push_back(new Drama);
-    movieFac_.push_back(new Classics);
-    // insert elements - movie genre ({key, value}) into map in a random order
-    movieMap_.insert(make_pair('F', 0));
-    movieMap_.insert(make_pair('D', 1));
-    movieMap_.insert(make_pair('C', 2));
+MovieFactory::MovieFactory() {
+  // pushback
+  movieFac_.push_back(new Comedy);
+  movieFac_.push_back(new Drama);
+  movieFac_.push_back(new Classics);
+  // insert elements - movie genre ({key, value}) into map in a random order
+  movieMap_.insert(make_pair('F', 0));
+  movieMap_.insert(make_pair('D', 1));
+  movieMap_.insert(make_pair('C', 2));
 }
 // destructor - deletes movie objects from vector
-MovieFactory::~MovieFactory() 
-{
-    for (int i = 0; i < movieFac_.size(); i++)
-    {
-        delete movieFac_[i];
-        movieFac_[i] = nullptr;
-        }
+MovieFactory::~MovieFactory() {
+  for (int i = 0; i < movieFac_.size(); i++) {
+    delete movieFac_[i];
+    movieFac_[i] = nullptr;
+  }
 }
 // creating the movie object, overrides Item's create function
 // override is optional
-Item *MovieFactory::create(char movieType) const 
-{
-    cerr << "MovieType" << movieType << endl;
-    if (movieMap_.find(movieType) == movieMap_.end()) 
-    {
-        return nullptr;
-    } 
-    else 
-    {
-        int subscript = movieMap_.at(movieType);
-        cerr << "subscript" << subscript << endl;
-        return movieFac_[subscript]->create();
-    }
+Item *MovieFactory::create(char movieType) const {
+  cerr << "MovieType" << movieType << endl;
+  if (movieMap_.find(movieType) == movieMap_.end()) {
+    return nullptr;
+  } else {
+    int subscript = movieMap_.at(movieType);
+    cerr << "subscript" << subscript << endl;
+    return movieFac_[subscript]->create();
+  }
 }

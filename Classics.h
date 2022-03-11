@@ -35,10 +35,11 @@ public:
   bool operator!=(Item &item) const override;
   bool operator<(Item &item) const override;
   bool operator>(Item &item) const override;
-  
+
   // setting item
   void setItem(istream &data) override;
-  void setPartialItem(istream &inFile, char itemType, char genre) override; //// oop, setting partial (unique to only classics)
+  void setPartialItem(istream &inFile, char itemType, char genre)
+      override; //// oop, setting partial (unique to only classics)
 
   // print
   void print(ostream &output) const override;

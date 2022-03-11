@@ -7,8 +7,6 @@
 #include "Transaction.h"
 
 // default constructor
-Transaction::Transaction()
-{}
+Transaction::Transaction() {}
 // virtual destructor
-Transaction::~Transaction()
-{}
+Transaction::~Transaction() {}

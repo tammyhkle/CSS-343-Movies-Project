@@ -21,7 +21,7 @@ using namespace std;
 
 class Transaction;
 class Customer {
-//friend ostream &operator<<(ostream &output, const BSTree& bst);
+  // friend ostream &operator<<(ostream &output, const BSTree& bst);
 
 public:
   vector<Transaction *> history_;
@@ -30,9 +30,9 @@ public:
   Customer();
   // destructor
   virtual ~Customer();
-  //add to history
-  void addHistory(Transaction* transaction);
-  //method to set all fields for the customer's account
+  // add to history
+  void addHistory(Transaction *transaction);
+  // method to set all fields for the customer's account
   bool setData(int customerID, istream &infile);
   // returns customer ID - used to find a customer in the hash table
   int getCustomerID();
@@ -46,7 +46,7 @@ private:
   string firstName_;
   string lastName_;
   // vector where we store the transactions objects
-  //vector<Transaction *> history_;
+  // vector<Transaction *> history_;
 };
 
 #endif // CUSTOMER_H

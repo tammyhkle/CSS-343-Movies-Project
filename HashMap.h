@@ -30,10 +30,10 @@ public:
   // strings firstName and lastname
   bool addCustomer(int customerID, istream &inFile);
   // deleteCustomer deletes a customer based on the account number
-  bool deleteCustomer(Customer* customer);
+  bool deleteCustomer(Customer *customer);
   // get customer gets the customer account pointer connected to the accountNum
   // parameter
-  Customer* getCustomer(int customerID) const;
+  Customer *getCustomer(int customerID) const;
   // hashifying: creates hash code for passed accountID;
   // preconditions: int passed must be valid ID
   int hashify(int) const;

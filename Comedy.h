@@ -16,7 +16,7 @@
 using namespace std;
 
 class Comedy : public Movie {
-  //ostream operator<<
+  // ostream operator<<
   friend ostream &operator<<(ostream &output, const Comedy &comedy);
 
 public:
@@ -31,17 +31,19 @@ public:
   Item *create() const override;
   // setting item
   void setItem(istream &data) override;
-  void setPartialItem(istream &inFile, char itemType, char genre) override; //oop, setting partial
+  void setPartialItem(istream &inFile, char itemType,
+                      char genre) override; // oop, setting partial
 
   // assignment operator
   Item &operator=(Item &item);
   // comparison operators
- // virtual comparison operator== COMEDY
+  // virtual comparison operator== COMEDY
   // bool operator==(Item &item) override
   // {
   //   Comedy &ptr = static_cast<Comedy &>(item);
-  //   cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
-  //   return (title_ == ptr.title_ && yearReleased_ == ptr.yearReleased_);
+  //   cerr << "Start: Comedy check log for title/ director EQUALS == operator "
+  //   << endl; return (title_ == ptr.title_ && yearReleased_ ==
+  //   ptr.yearReleased_);
   // }
   // bool operator!=(Item &item) override;
   // bool operator<(Item &item) override;

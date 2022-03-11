@@ -39,7 +39,8 @@ public:
 
   // setting item
   void setItem(istream &data) override;
-  void setPartialItem(istream &inFile, char itemType, char genre) override; //// oop, setting partial (unique to only drama)
+  void setPartialItem(istream &inFile, char itemType, char genre)
+      override; //// oop, setting partial (unique to only drama)
 
   // print
   void print(ostream &output) const override;
