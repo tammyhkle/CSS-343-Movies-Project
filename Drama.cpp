@@ -35,7 +35,7 @@ Item &Drama::operator=(Item &item) {
   return *this;
 }
 // comparison operator== DRAMA
-bool Drama::operator==(Item &item) {
+bool Drama::operator==(Item &item) const {
    Drama &ptr = static_cast< Drama &>(item);
     //prints
     cerr << "Drama Director: "  << director_ << endl;
@@ -45,24 +45,38 @@ bool Drama::operator==(Item &item) {
     return (director_ == ptr.director_ && title_ == ptr.title_);
 }
 // comparison operator!= DRAMA
-bool Drama::operator!=(Item &item) {
+bool Drama::operator!=(Item &item) const {
 	return !(*this == item);
 }
 // comparison operator< DRAMA
-bool Drama::operator<(Item &item) {
+bool Drama::operator<(Item &item) const {
   Drama &ptr = static_cast< Drama &>(item);
   // sorted by directors name then title of movie
-  if (director_ < ptr.director_) {
+  if (director_ < ptr.director_) 
+  {
     return true;
-  } else if (director_ == director_) {
+  } 
+  else if (director_ == ptr.director_) 
+  {
     return title_ < ptr.title_;
   }
   return false;
 }
 // comparison operator> DRAMA
-bool Drama::operator>(Item &item) {
+bool Drama::operator>(Item &item) const {
   Drama &ptr = static_cast<Drama &>(item);
-  return !(*this < ptr);
+  //return !(*this < ptr);
+   if (this->operator==(item) || this->operator<(item)) {
+      return false;
+   }
+
+   if (this->director_ > ptr.director_) {
+      return true;
+   }
+   else if (this->director_ == ptr.director_) {
+      return this->title_ > ptr.title_;
+   }
+   return false;
 }
 
 // set Item
@@ -75,10 +89,12 @@ void Drama::setItem(istream &infile) {
   cerr << "Stock: " << stock << endl;
 
   // Insert the director
+  infile.get();
   getline(infile, director_, ',');
   cerr << "Director: " << director_ << endl;
 
   // Grab the title of movie
+  infile.get();
   getline(infile, title_, ',');
   cerr << "Drama's title: " << title_ << endl;
 
@@ -106,7 +122,9 @@ void Drama::setPartialItem(istream &inFile, char itemType, char genre)
   itemType_ = itemType;
   genre_ = genre;
   //Steven Spielberg, Schindler's List
+  inFile.get();
   getline(inFile, director_, ',');
+  inFile.get();
   getline(inFile, title_, ',');
 
   //defaults

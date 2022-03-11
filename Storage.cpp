@@ -77,10 +77,8 @@
               }
           }
       }
-      //code break here after 2nd borrow command
       cerr << "Failed to find item" << endl; 
       return false;
-
 
     //   if (!(bstMap_.find(key) == bstMap_.end()))
     //   {

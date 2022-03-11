@@ -41,13 +41,13 @@ public:
   void setItem(istream &data) = 0;
 
   // assignment operator
-  //virtual Item &operator=(Item &other);
-  
-  // // compare operators to sort items in BSTree
-   //virtual bool operator==(Item &other);
-  // virtual  bool operator!=(Item &other);
-  // virtual bool operator<(Item &other);
-  // virtual bool operator>(Item &other);
+  virtual Item &operator=(Item &) = 0;
+  // compare operators to sort items in BSTree
+  virtual bool operator==(Item &) const = 0;
+  virtual bool operator!=(Item &) const = 0;
+  virtual bool operator<(Item &) const = 0;
+  virtual bool operator>(Item &) const = 0;
+
   //print
   void print(ostream &output) const;
 

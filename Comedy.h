@@ -34,18 +34,24 @@ public:
   void setPartialItem(istream &inFile, char itemType, char genre) override; //oop, setting partial
 
   // assignment operator
-  Item &operator=(Item &item) override;
+  Item &operator=(Item &item);
   // comparison operators
  // virtual comparison operator== COMEDY
-  bool operator==(Item &item) override
-  {
-    Comedy &ptr = static_cast<Comedy &>(item);
-    cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
-    return (title_ == ptr.title_ && yearReleased_ == ptr.yearReleased_);
-  }
-  bool operator!=(Item &item) override;
-  bool operator<(Item &item) override;
-  bool operator>(Item &item) override;
+  // bool operator==(Item &item) override
+  // {
+  //   Comedy &ptr = static_cast<Comedy &>(item);
+  //   cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
+  //   return (title_ == ptr.title_ && yearReleased_ == ptr.yearReleased_);
+  // }
+  // bool operator!=(Item &item) override;
+  // bool operator<(Item &item) override;
+  // bool operator>(Item &item) override;
+
+  // compare operators to sort items in BSTree
+  bool operator==(Item &) const;
+  bool operator!=(Item &) const;
+  bool operator<(Item &) const;
+  bool operator>(Item &) const;
 
   // print
   void print(ostream &output) const override;

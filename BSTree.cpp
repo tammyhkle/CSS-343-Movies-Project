@@ -63,7 +63,7 @@ bool BSTree::insert(Item *insertPtr) {
     bool inserted = false;
     // determine whether to go into the left or right subtree
     while (!inserted) {
-      if (insertPtr < current->itemPtr_) {
+      if (*(insertPtr) < *(current->itemPtr_)) { 
         //left
         if (current->left_ == nullptr) {
           Node *temp = new Node();
@@ -79,23 +79,6 @@ bool BSTree::insert(Item *insertPtr) {
           current = current->left_;
         }
       } 
-      //left
-      else if (insertPtr == current->itemPtr_)
-      {
-        if (current->left_ == nullptr) {
-          Node *temp = new Node();
-          temp->itemPtr_ = insertPtr;
-          temp->left_ = nullptr;
-          temp->right_ = nullptr;
-          current->left_ = temp;
-          cerr << "Inserted left: " << inserted << endl;
-          inserted = true;
-        } 
-        else 
-        {
-          current = current->left_;
-        }
-      }
       //right
       else 
       {
@@ -164,23 +147,24 @@ bool BSTree::retrieve(Item *target, Item *&retrieverItem) const {
 // the itemPtr have to pass in as arguemnet to keep track of BSTree's root
 // another ptr referenced Item = target
 BSTree::Node *BSTree::retrieveHelper(Node* current, Item *target) const {
-  if (current == nullptr) {
-    cerr << "Null Pointer" << endl;
-    return current;
-  } else {
-      current->itemPtr_->print(cerr); //printing every node we travel to
-      if (current->itemPtr_ == target) {
-        cerr << "Found";
-        return current;
-      } else if (current->itemPtr_ > target) {
-        cerr << "Target is less" << endl;
-        return retrieveHelper(current->left_, target);
-      } else {
-        cerr << "Target is greater" << endl;
-        return retrieveHelper(current->right_, target);
-      }
-  }
+    if (current == nullptr) {
+      cerr << "Null Pointer" << endl;
+      return current;
+   }
+   else if (*current->itemPtr_ == *target) {
+      cerr << "Found";
+      return current;
+   }
+   else if (*current->itemPtr_ > *target) {
+      cerr << "Target is less" << endl;
+      return retrieveHelper(current->left_, target);
+   }
+   else {
+     cerr << "Target is greater" << endl;
+      return retrieveHelper(current->right_, target);
+   }
 }
+
 // print for ostream <<
 void BSTree::print(ostream &output) const {
   stack<Node *> nodeStack;

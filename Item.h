@@ -47,10 +47,10 @@ public:
   // assignment operator
   virtual Item &operator=(Item &) = 0;
   // compare operators to sort items in BSTree
-  virtual bool operator==(Item &) = 0;
-  virtual bool operator!=(Item &) = 0;
-  virtual bool operator<(Item &) = 0;
-  virtual bool operator>(Item &) = 0;
+  virtual bool operator==(Item &) const = 0;
+  virtual bool operator!=(Item &) const = 0;
+  virtual bool operator<(Item &) const = 0;
+  virtual bool operator>(Item &) const = 0;
 
   // virtual print
   virtual void print(ostream &out) const = 0;

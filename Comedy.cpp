@@ -34,7 +34,7 @@ Item *Comedy::create() const
 }
 
 // assignment operator
-Item &Comedy::operator=(Item &item) 
+Item &Comedy::operator=(Item &item)
 {
   Comedy &movieComedy = static_cast<Comedy &>(item);
   this->currCopies_ = movieComedy.currCopies_;     // stock
@@ -44,20 +44,20 @@ Item &Comedy::operator=(Item &item)
   return *this;
 }
 
-// // virtual comparison operator== COMEDY
-// bool Comedy::operator==(Item &item) 
-// {
-//   Comedy &ptr = static_cast<Comedy &>(item);
-//   cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
-//   return (title_ == ptr.title_ && yearReleased_ == ptr.yearReleased_);
-// }
-//  comparison operator!= COMEDY
-bool Comedy::operator!=(Item &item) {
+  //virtual comparison operator== COMEDY
+ bool Comedy::operator==(Item &item) const //add const in parameters
+ {
+   Comedy &ptr = static_cast<Comedy &>(item); //add const in front of comedy
+   cerr << "Start: Comedy check log for title/ director EQUALS == operator " << endl;
+   return (this->title_ == ptr.title_ && this->yearReleased_ == ptr.yearReleased_);
+}
+// virtual comparison operator!= COMEDY
+bool Comedy::operator!=(Item &item) const {
   Comedy &ptr = static_cast<Comedy &>(item);
   return !this->operator==(ptr);
 }
-// comparison operator< COMEDY
-bool Comedy::operator<(Item &item) {
+//  comparison operator< COMEDY
+bool Comedy::operator<(Item &item) const {
   Comedy &ptr = static_cast<Comedy &>(item);
   // sorted by Title of movie, then directors name
   cerr << "Start: Comedy check log for title/ director LESS THAN operator " << endl;
@@ -66,16 +66,29 @@ bool Comedy::operator<(Item &item) {
     return true;
   } else if (title_ == ptr.title_) {
     cerr << "Title is == item.title: " << title_ << " == " << ptr.title_ << endl;
-    return director_ < ptr.director_;
+    return yearReleased_ < ptr.yearReleased_;
   }
   cerr << "Director_ < item.director_ (is less than): " << director_ << " < " << ptr.director_ << endl;
   return false;
 }
 // comparison operator> COMEDY
-bool Comedy::operator>(Item &item) {
+bool Comedy::operator>(Item &item) const {
   Comedy &ptr = static_cast<Comedy &>(item);
   cerr << "Start: Comedy check log for title/ director GREATER THAN operator " << endl;
-  return !(*this < ptr);
+  //return !(*this < ptr);
+  // const Comedy& aComedy = static_cast<const Comedy&>(item);
+
+   if (this->operator==(item) || this->operator<(item)) {
+      return false;
+   }
+
+   if (this->title_ > ptr.title_) {
+      return true;
+   }
+   else if (this->title_ == ptr.title_) {
+      return this->yearReleased_ > ptr.yearReleased_;
+   }
+   return false;
 }
 // set Item
 void Comedy::setItem(istream &infile) {
@@ -87,10 +100,12 @@ void Comedy::setItem(istream &infile) {
   cerr << "Stock: " << stock << endl;
 
   // Insert the director
+  infile.get(); //grab empty space and delete 
   getline(infile, director_, ',');
   cerr << "Director: " << director_ << endl;
 
   // Grab the title of movie
+  infile.get(); //grab empty space and delete 
   getline(infile, title_, ',');
   cerr << "Comedy's title: " << title_ << endl;
 
@@ -118,6 +133,7 @@ void Comedy::setPartialItem(istream &inFile, char itemType, char genre)
   itemType_ = itemType;
   genre_ = genre;
   // Pirates of the Caribbean, 2003
+  inFile.get();
   getline(inFile, title_, ',');
   inFile >> yearReleased_;
 

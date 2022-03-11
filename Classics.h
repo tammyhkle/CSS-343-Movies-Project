@@ -31,10 +31,10 @@ public:
   // assignment operator
   Item &operator=(Item &item) override;
   // comparison operators
-  bool operator==(Item &item) override;
-  bool operator!=(Item &item) override;
-  bool operator<(Item &item) override;
-  bool operator>(Item &item) override;
+  bool operator==(Item &item) const override;
+  bool operator!=(Item &item) const override;
+  bool operator<(Item &item) const override;
+  bool operator>(Item &item) const override;
   
   // setting item
   void setItem(istream &data) override;
@@ -46,6 +46,8 @@ public:
 private:
   string director_;
   string majorActor_;
+  string firstName_;
+  string lastName_;
   int yearReleased_;
   int monthReleased_;
 };

@@ -44,7 +44,7 @@ Item &Classics::operator=(Item &item) {
 }
 
 // virtual comparison operator== CLASSICS
-bool Classics::operator==(Item &item) {
+bool Classics::operator==(Item &item) const {
   Classics &ptr = static_cast<Classics &>(item);
   return (majorActor_ == ptr.majorActor_ &&
           yearReleased_ == ptr.yearReleased_ &&
@@ -52,31 +52,57 @@ bool Classics::operator==(Item &item) {
 }
 
 // virtual comparison operator!= CLASSICS
-bool Classics::operator!=(Item &item) { 
+bool Classics::operator!=(Item &item) const { 
   Classics &ptr = static_cast<Classics &>(item);
   return !this->operator==(ptr); 
 }
 
 // virtual comparison operator< (slighly different than drama and comedy)
 // CLASSICS
-bool Classics::operator<(Item &item) {
+bool Classics::operator<(Item &item) const {
   Classics &ptr = static_cast<Classics &>(item);
   // sorted by Release Date, then by Major Actor
-  if (yearReleased_ < ptr.yearReleased_) {
+  if (yearReleased_ < ptr.yearReleased_) 
+  {
     return true;
-  } else if (yearReleased_ == ptr.yearReleased_) {
-    if (monthReleased_ == ptr.monthReleased_) {
-      return majorActor_ < ptr.majorActor_;
+  } 
+  else if (yearReleased_ == ptr.yearReleased_ && monthReleased_ == ptr.monthReleased_) 
+    {
+      if (lastName_ < ptr.lastName_)
+      {
+        return true;
+      }
     }
+  else if ( yearReleased_ == ptr.yearReleased_)
+  {
     return monthReleased_ < ptr.monthReleased_;
   }
-  return false;
+  else 
+  {
+    return false;
+  }
 }
 
 // virtual comparison operator> CLASSICS
-bool Classics::operator>(Item &item) {
+bool Classics::operator>(Item &item) const {
     Classics &ptr = static_cast<Classics &>(item);
-    return !(*this < ptr);
+    //return !(*this < ptr);
+    if (yearReleased_ > ptr.yearReleased_) 
+  {
+    return true;
+  } 
+  else if (yearReleased_ == ptr.yearReleased_ && monthReleased_ == ptr.monthReleased_) 
+    {
+      return majorActor_ > ptr.majorActor_;
+    }
+  else if ( yearReleased_ == ptr.yearReleased_)
+  {
+    return monthReleased_ > ptr.monthReleased_;
+  }
+  else 
+  {
+    return false;
+  }
 }
 
 // set Item
@@ -89,19 +115,19 @@ void Classics::setItem(istream &infile) {
   cerr << "Stock: " << stock << endl;
 
   // Insert the director
+  infile.get();
   getline(infile, director_, ',');
   cerr << "director: " << director_ << endl;
 
   // Grab the title of movie
+  infile.get();
   getline(infile, title_, ',');
   cerr << "title: " << title_ << endl;
 
   // Major actor
-  string firstName;
-  string lastName;
-  infile >> firstName;
-  infile >> lastName;
-  majorActor_ = firstName + " " + lastName;
+  infile >> firstName_;
+  infile >> lastName_;
+  majorActor_ = firstName_ + " " + lastName_;
   cerr << "majorActor: " << majorActor_ << endl;
 
   // insert the monthReleased
@@ -137,11 +163,9 @@ void Classics::setPartialItem(istream &inFile, char itemType, char genre) {
   inFile >> monthReleased_;
   inFile >> yearReleased_;
   // Major actor
-  string firstName;
-  string lastName;
-  inFile >> firstName;
-  inFile >> lastName;
-  majorActor_ = firstName + " " + lastName;
+  inFile >> firstName_;
+  inFile >> lastName_;
+  majorActor_ = firstName_ + " " + lastName_;
 
   //defaults
   director_ = "Default";

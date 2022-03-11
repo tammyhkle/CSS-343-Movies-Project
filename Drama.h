@@ -32,10 +32,10 @@ public:
   // assignment operator
   Item &operator=(Item &item) override;
   // comparison operators
-  bool operator==(Item &item) override;
-  bool operator!=(Item &item) override;
-  bool operator<(Item &item) override;
-  bool operator>(Item &item) override;
+  bool operator==(Item &item) const override;
+  bool operator!=(Item &item) const override;
+  bool operator<(Item &item) const override;
+  bool operator>(Item &item) const override;
 
   // setting item
   void setItem(istream &data) override;
