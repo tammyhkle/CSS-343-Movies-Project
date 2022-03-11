@@ -22,8 +22,8 @@ if it has been fully, partially or not implemented at all.
 Explain any partial implementations.
 
 Inventory: Full
-History: 
-Borrow: 
+History: Full
+Borrow: Full
 Return: Full
 
 Q: -1 for each compilation warning, min -3: 0
